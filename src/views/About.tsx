@@ -1,13 +1,14 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import { Container, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import React from "react"
+import Box from "@mui/material/Box"
+import { Container, Typography } from "@mui/material"
+import Grid from "@mui/material/Grid"
 
-import Navbar from "../components/Navbar";
-import { lightBlack, lightGray } from "../theme.ts";
-import WorkCard from "../components/WorkCard";
+import Navbar from "../components/Navbar"
+import { lightBlack, lightGray } from "../theme"
+//@ts-ignore
+import WorkCard from "../components/WorkCard"
 
-export default function About() {
+export default function About():JSX.Element {
   return (
     <>
       <div
@@ -15,7 +16,7 @@ export default function About() {
           backgroundColor: lightBlack,
         }}
       >
-        <Navbar dark />
+        <Navbar dark={true} />
         <Container sx={{ paddingY: 10 }}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} paddingBottom={10}>
@@ -80,5 +81,5 @@ export default function About() {
         </Container>
       </div>
     </>
-  );
+  )
 }

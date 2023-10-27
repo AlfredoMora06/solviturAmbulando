@@ -1,38 +1,42 @@
-import * as React from "react";
-import { useNavigate } from "react-router-dom";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import * as React from "react"
+import { useNavigate } from "react-router-dom"
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Toolbar from "@mui/material/Toolbar"
+import IconButton from "@mui/material/IconButton"
+import Typography from "@mui/material/Typography"
+import Menu from "@mui/material/Menu"
+import MenuIcon from "@mui/icons-material/Menu"
+import Container from "@mui/material/Container"
+import Button from "@mui/material/Button"
+import MenuItem from "@mui/material/MenuItem"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
 
-import { lightGray } from "../theme.ts";
+import { lightGray } from "../theme"
 
 const pages = [
   { title: "About Me", link: "../about" },
   { title: "Resume", link: "../resume" },
   { title: "Projects", link: "../projects" },
-];
+]
 
-const Navbar = ({ dark }) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const navigate = useNavigate();
+type NavbarProps = {
+  dark: boolean
+}
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+export default function Navbar (
+  { dark }: NavbarProps
+): JSX.Element {
+  const [anchorElNav, setAnchorElNav] = React.useState(null)
+  const navigate = useNavigate()
+
+  const handleOpenNavMenu = (event: any) => {
+    setAnchorElNav(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   return (
     <AppBar
@@ -41,7 +45,6 @@ const Navbar = ({ dark }) => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -57,7 +60,7 @@ const Navbar = ({ dark }) => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Alfredo Morales
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -96,25 +99,6 @@ const Navbar = ({ dark }) => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: dark ? lightGray : "black",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <Button
@@ -142,17 +126,9 @@ const Navbar = ({ dark }) => {
               }
               sx={{ color: dark ? lightGray : "black", cursor: "pointer" }}
             />
-
-            <TwitterIcon
-              onClick={() =>
-                window.open("https://twitter.com/Miles_Morales98", "_blank")
-              }
-              sx={{ color: dark ? lightGray : "black", cursor: "pointer" }}
-            />
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
-export default Navbar;
+  )
+}

@@ -1,20 +1,27 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import { Container, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import React from "react"
+import Box from "@mui/material/Box"
+import { Container, Typography } from "@mui/material"
+import Button from "@mui/material/Button"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import CardActions from "@mui/material/CardActions"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
 
-import RecipeFinder from "../assets/Recipe_Finder.png";
-import CunyHub from "../assets/CUNY_HUB.png";
-import CunyYak from "../assets/cuny_yak.jpg";
-import creativo from "../assets/creativo.png";
-import GreenPrint from "../assets/python.png";
-import Navbar from "../components/Navbar";
-import Earworm from "../assets/Earworm.png";
+//@ts-ignore
+import RecipeFinder from "../assets/Recipe_Finder.png"
+//@ts-ignore
+import CunyHub from "../assets/CUNY_HUB.png"
+//@ts-ignore
+import CunyYak from "../assets/cuny_yak.jpg"
+//@ts-ignore
+import creativo from "../assets/creativo.png"
+//@ts-ignore
+import GreenPrint from "../assets/python.png"
+//@ts-ignore
+import Navbar from "../components/Navbar"
+//@ts-ignore
+import Earworm from "../assets/Earworm.png"
 
 const projects = [
   {
@@ -62,9 +69,9 @@ const projects = [
       "A website that shows photos of NYC and a blog of responses towards Media articles of our current lives.",
     code: "https://github.com/AlfredoMora06/creative",
   },
-];
+]
 
-export default function Projects() {
+export default function Projects():JSX.Element {
   // backgroundColor: "#24242c"
   return (
     <>
@@ -140,7 +147,7 @@ export default function Projects() {
                             <Button
                               size="small"
                               onClick={() => {
-                                window.open(project.code, "_blank");
+                                window.open(project.code, "_blank")
                               }}
                             >
                               Code
@@ -153,7 +160,7 @@ export default function Projects() {
                             <Button
                               size="small"
                               onClick={() => {
-                                window.open(project.demo, "_blank");
+                                window.open(project.demo, "_blank")
                               }}
                             >
                               Demo
@@ -165,12 +172,12 @@ export default function Projects() {
                       </CardActions>
                     </Card>
                   </Grid>
-                );
+                )
               })}
             </Grid>
           </Box>
         </Container>
       </div>
     </>
-  );
+  )
 }

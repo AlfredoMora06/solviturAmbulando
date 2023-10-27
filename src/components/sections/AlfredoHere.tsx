@@ -1,34 +1,27 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import { Container, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box"
+import { Typography } from "@mui/material"
+import Grid from "@mui/material/Grid"
 
-import LinkedInPic from "../../assets/LinkedInPic.jpeg";
 
-export default function AlfredoHere() {
+export default function AlfredoHere():JSX.Element {
   return (
-    <Container>
+    <Box m="auto" maxWidth={1250} width="100%">
       <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} container direction="row">
             <Grid item xs={12}>
-              <Typography
-                variant="h1"
-                style={{ fontSize: 65, fontWeight: 700 }}
-              >
-                Alfredo Here!
-              </Typography>
-              <Typography>
-                I’m a <b>software engineer</b> who likes <b>frontend</b> and
-                working with <b>product teams</b>. I love understanding how
-                things work and being able to explain them, and my growth
-                mindset means that I enjoy curating a productive and
-                collaborative work environment. I'm always happy to chat about
-                software engineering opportunities or DEI strategies.
+              <Typography fontSize={22}>
+                My name is Alfredo and I’m a <b>fullstack software engineer</b>{" "}
+                who likes <b>frontend</b> and working with <b>product teams</b>.
+                I love understanding how things work and being able to explain
+                them, and my growth mindset means that I enjoy curating a
+                productive and collaborative work environment. I'm always happy
+                to chat about software engineering opportunities or DEI
+                strategies.
               </Typography>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={3} paddingTop={10}>
               <div
                 className="image-block-wrapper"
                 data-animation-role="image"
@@ -76,11 +69,8 @@ export default function AlfredoHere() {
               <hr style={{ border: "1px solid #E05437" }} />
             </Grid>
           </Grid>
-          <Grid item xs={12} md={6} container justifyContent={"center"}>
-            <img src={LinkedInPic} alt="LinkedInPic" />
-          </Grid>
         </Grid>
       </Box>
-    </Container>
+    </Box>
   );
 }

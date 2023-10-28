@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box"
 import { Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
+//@ts-ignore
+import Container from "../Container"
 
 
 export default function AlfredoHere():JSX.Element {
   return (
-    <Box m="auto" maxWidth={1250} width="100%">
+    <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} container direction="row">
@@ -18,6 +20,11 @@ export default function AlfredoHere():JSX.Element {
                 productive and collaborative work environment. I'm always happy
                 to chat about software engineering opportunities or DEI
                 strategies.
+              </Typography>
+              <br/>
+              <Typography fontSize={22}>
+                I specialize on building blazing fast web applications with React, 
+                Redux, NodeJS and Express.Js contributing across the stack with a frontend focus.
               </Typography>
             </Grid>
 
@@ -71,6 +78,6 @@ export default function AlfredoHere():JSX.Element {
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </Container>
   );
 }

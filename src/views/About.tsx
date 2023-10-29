@@ -3,9 +3,11 @@ import { Container, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
 import Navbar from "../components/Navbar"
-import { lightBlack, lightGray } from "../theme"
+import { honeyDew, lightBlack, lightGray } from "../theme"
 //@ts-ignore
+import ChildhoodPic from "../assets/ChildhoodPic.jpg"
 import WorkCard from "../components/WorkCard"
+
 
 export default function About():JSX.Element {
   return (
@@ -29,6 +31,20 @@ export default function About():JSX.Element {
                   </Typography>
                 </Grid>
               </Grid>
+              <Grid item xs={1}></Grid>
+              <Grid item container xs={12} md={4} justifyContent="center">
+                <img 
+                  src={ChildhoodPic} 
+                  alt="family" 
+                  style={{
+                    width: "100%",
+                    border: `2px solid ${honeyDew}`,
+                    borderRadius: "40px",
+                    opacity: 0.75
+                  }}
+                />
+              </Grid>
+              <Grid item xs={1}></Grid>
             </Grid>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6} container alignItems="flex-start">

@@ -17,7 +17,7 @@ const workExperiences: Experience[] = [
   {
     workTitle: "TracFlo",
     image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
-    position: "Software Engineer",
+    position: "Software Engineer I",
     date: "Jan 2022 - Present"
   },
   {

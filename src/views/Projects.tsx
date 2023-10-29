@@ -22,6 +22,8 @@ import GreenPrint from "../assets/python.png"
 import Navbar from "../components/Navbar"
 //@ts-ignore
 import Earworm from "../assets/Earworm.png"
+import Footer from "../components/sections/Footer"
+import { lightBlack } from "../theme"
 
 const projects = [
   {
@@ -177,6 +179,14 @@ export default function Projects():JSX.Element {
             </Grid>
           </Box>
         </Container>
+      </div>
+      <div
+        style={{
+          backgroundColor: lightBlack,
+          paddingBottom: 80,
+        }}
+      >
+        <Footer />
       </div>
     </>
   )

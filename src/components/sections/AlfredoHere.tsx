@@ -1,9 +1,26 @@
 import Box from "@mui/material/Box"
-import { Typography } from "@mui/material"
+import { Fade, Slide, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
 //@ts-ignore
 import Container from "../Container"
+//@ts-ignore
+import SunsetTezo from "../../assets/SunsetTezo.jpg"
+//@ts-ignore
+import Abril from "../../assets/Abril.jpg"
+//@ts-ignore
+import SelfBrick from "../../assets/SelfBrick.jpg"
+//@ts-ignore
+import BaliPose from "../../assets/BaliPose.jpg"
+import { lightBlack } from "../../theme"
+
+
+const imageStyle = {
+  width: "100%",
+  border: `0.5px solid ${lightBlack}`,
+  borderRadius: "4px",
+  opacity: 0.9
+}
 
 
 export default function AlfredoHere():JSX.Element {
@@ -14,7 +31,7 @@ export default function AlfredoHere():JSX.Element {
           <Grid item xs={12} md={6} container direction="row">
             <Grid item xs={12}>
               <Typography fontSize={22}>
-                My name is Alfredo and I’m a <b>fullstack software engineer</b>{" "}
+                ¡Hola mi gente! Yo soy Alfredo, a <b>fullstack software engineer</b>{" "}
                 who likes <b>frontend</b> and working with <b>product teams</b>.
                 I am passionate about creating tools, learning new technologies, 
                 and being able to take ideas from one area of ​​knowledge to extrapolate them 
@@ -105,6 +122,51 @@ export default function AlfredoHere():JSX.Element {
             </Grid>
             <Grid item xs={12}>
               <hr style={{ border: "1px solid #E05437" }} />
+            </Grid>
+          </Grid>
+
+          <Grid item xs={12} md={6} container>
+            <Grid item container paddingBottom={1}>
+              <Fade in={true} timeout={1000}>
+                <Grid item container xs={12} md={7} alignContent="flex-end" paddingRight={1}>
+                  <img
+                    src={SunsetTezo}
+                    alt="tezo"
+                    style={imageStyle}
+                  />
+                </Grid>
+              </Fade>
+              <Grid item container xs={12} md={5} alignContent="flex-end">
+                <Grid item container bgcolor={"#E05437"}>
+                </Grid>
+                <Slide direction="down" in={true} unmountOnExit timeout={1000}>
+                  <img
+                    src={SelfBrick}
+                    alt="brickwall"
+                    style={imageStyle}
+                  />
+                </Slide>
+              </Grid>
+            </Grid>
+            <Grid item container>
+              <Grid item xs={12} md={5}>
+                <Slide direction="up" in={true} unmountOnExit timeout={1000}>
+                  <img
+                    src={BaliPose}
+                    alt="bali"
+                    style={imageStyle}
+                  />
+                </Slide>
+              </Grid>
+              <Fade in={true} timeout={1000}>
+                <Grid item xs={12} md={7} paddingLeft={1}>
+                  <img
+                    src={Abril}
+                    alt="abril"
+                    style={imageStyle}
+                  />
+                </Grid>
+              </Fade>
             </Grid>
           </Grid>
         </Grid>

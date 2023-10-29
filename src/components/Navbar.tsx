@@ -17,6 +17,7 @@ const pages = [
   { title: "About Me", link: "../about" },
   { title: "Resume", link: "../resume" },
   { title: "Projects", link: "../projects" },
+  { title: "Photography", link: "../photography"},
 ]
 
 type NavbarProps = {

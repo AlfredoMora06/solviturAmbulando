@@ -1,12 +1,14 @@
 import Box from "@mui/material/Box"
 import { Container, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import Fade from '@mui/material/Fade'
 
 import Navbar from "../components/Navbar"
 import { honeyDew, lightBlack, lightGray } from "../theme"
 //@ts-ignore
 import ChildhoodPic from "../assets/ChildhoodPic.jpg"
 import WorkCard from "../components/WorkCard"
+import Footer from "../components/sections/Footer"
 
 
 export default function About():JSX.Element {
@@ -32,18 +34,22 @@ export default function About():JSX.Element {
                 </Grid>
               </Grid>
               <Grid item xs={1}></Grid>
-              <Grid item container xs={12} md={4} justifyContent="center">
-                <img 
-                  src={ChildhoodPic} 
-                  alt="family" 
-                  style={{
-                    width: "100%",
-                    border: `2px solid ${honeyDew}`,
-                    borderRadius: "40px",
-                    opacity: 0.75
-                  }}
-                />
-              </Grid>
+              
+              <Fade in={true} timeout={1000}>
+                <Grid item container xs={12} md={4} justifyContent="center">
+                  <img 
+                    src={ChildhoodPic} 
+                    alt="family" 
+                    style={{
+                      width: "100%",
+                      border: `2px solid ${honeyDew}`,
+                      borderRadius: "40px",
+                      opacity: 0.75
+                    }}
+                  />
+                </Grid>
+              </Fade>
+
               <Grid item xs={1}></Grid>
             </Grid>
             <Grid container spacing={2}>
@@ -90,6 +96,15 @@ export default function About():JSX.Element {
             </Grid>
           </Box>
         </Container>
+      </div>
+      <div
+        style={{
+          backgroundColor: lightBlack,
+          paddingBottom: 80,
+          borderTop: `1px solid ${honeyDew}`
+        }}
+      >
+        <Footer />
       </div>
     </>
   )

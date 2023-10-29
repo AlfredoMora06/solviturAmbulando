@@ -14,10 +14,10 @@ import MenuItem from "@mui/material/MenuItem"
 import { lightGray } from "../theme"
 
 const pages = [
-  { title: "About Me", link: "../about" },
-  { title: "Resume", link: "../resume" },
-  { title: "Projects", link: "../projects" },
-  { title: "Photography", link: "../photography"},
+  { title: "About Me", link: "../0/about" },
+  { title: "Resume", link: "../0/resume" },
+  { title: "Projects", link: "../0/projects" },
+  { title: "Photography", link: "../0/photography"},
 ]
 
 type NavbarProps = {
@@ -49,7 +49,7 @@ export default function Navbar (
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/0/home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },

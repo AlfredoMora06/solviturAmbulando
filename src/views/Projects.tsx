@@ -1,13 +1,10 @@
-import React from "react"
 import Box from "@mui/material/Box"
-import { Container, Typography } from "@mui/material"
+import { Typography } from "@mui/material"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
-import Card from "@mui/material/Card"
-import CardActions from "@mui/material/CardActions"
-import CardContent from "@mui/material/CardContent"
-import CardMedia from "@mui/material/CardMedia"
 
+//@ts-ignore
+import Container from "../components/Container"
 //@ts-ignore
 import RecipeFinder from "../assets/Recipe_Finder.png"
 //@ts-ignore
@@ -23,7 +20,7 @@ import Navbar from "../components/Navbar"
 //@ts-ignore
 import Earworm from "../assets/Earworm.png"
 import Footer from "../components/sections/Footer"
-import { lightBlack } from "../theme"
+import { lightBlack, lightGray } from "../theme"
 
 const projects = [
   {
@@ -73,33 +70,32 @@ const projects = [
   },
 ]
 
+const sx = {
+  hover: {
+    "&:hover": {
+      color: "#3751FF",
+      border: "1px solid #3751FF",
+    }
+  }
+}
+
 export default function Projects():JSX.Element {
   // backgroundColor: "#24242c"
   return (
     <>
-      <div style={{ backgroundColor: "#24242c", paddingBottom: 80 }}>
-        <Navbar dark={true} />
+      <div style={{ backgroundColor: lightGray, paddingBottom: 80 }}>
+        <Navbar dark={false} />
         <Container sx={{ paddingTop: 15, paddingBottom: 15 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <Grid container justifyContent="center">
+            <Grid container>
               <Grid item xs={12} md={9}>
-                <Typography
-                  variant="h1"
-                  style={{ fontSize: 65, fontWeight: 700, color: "white" }}
-                >
-                  These Are My Projects! ^^
+                <Typography variant="h1" style={{ fontSize: 65, fontWeight: 700}}>
+                  These Are My Projects!
                 </Typography>
               </Grid>
-              <Grid
-                item
-                xs={12}
-                md={9}
-                sx={{ paddingTop: 10 }}
-                container
-                justifyContent="center"
-              >
-                <Typography variant="h5" style={{ color: "white" }}>
-                  Projects mainly from my days as a student.
+              <Grid item container xs={12} md={9} sx={{ paddingTop: 5 }}>
+                <Typography variant="h5">
+                  A collection of programming work I've done. Enjoy!
                 </Typography>
               </Grid>
             </Grid>
@@ -108,7 +104,7 @@ export default function Projects():JSX.Element {
       </div>
       <div
         style={{
-          backgroundColor: "#fefaec",
+          backgroundColor: lightBlack,
           paddingTop: 50,
           paddingBottom: 80,
         }}
@@ -116,7 +112,8 @@ export default function Projects():JSX.Element {
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
-              {projects.map((project, index) => {
+              {projects.map((project) => {
+                const {image} = project
                 return (
                   <Grid
                     item
@@ -126,54 +123,11 @@ export default function Projects():JSX.Element {
                     justifyContent={"center"}
                     style={{ paddingTop: 40 }}
                   >
-                    <Card sx={{ maxWidth: 400 }}>
-                      <CardMedia
-                        component="img"
-                        height="180"
-                        image={project.image}
-                        alt="green iguana"
-                      />
-                      <CardContent>
-                        <Grid container justifyContent={"center"}>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {project.title}
-                          </Typography>
-                        </Grid>
-                        <Typography variant="body2" color="text.secondary">
-                          {project.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Grid container justifyContent="space-evenly">
-                          {project.code ? (
-                            <Button
-                              size="small"
-                              onClick={() => {
-                                window.open(project.code, "_blank")
-                              }}
-                            >
-                              Code
-                            </Button>
-                          ) : (
-                            <></>
-                          )}
-
-                          {project.demo ? (
-                            <Button
-                              size="small"
-                              onClick={() => {
-                                window.open(project.demo, "_blank")
-                              }}
-                            >
-                              Demo
-                            </Button>
-                          ) : (
-                            <></>
-                          )}
-                        </Grid>
-                      </CardActions>
-                    </Card>
+                    <Button variant="text" sx={{ display: "flex", flexDirection: "column"}}>
+                      <img src={image} width="100%" alt="folder" className={"hover"}/>
+                    </Button>
                   </Grid>
+
                 )
               })}
             </Grid>

@@ -3,7 +3,7 @@ import React from "react"
 import Navbar from "../components/Navbar"
 import AlfredoHere from "../components/sections/AlfredoHere"
 import Footer from "../components/sections/Footer"
-import { honeyDew, lightBlack, lightGray } from "../theme"
+import { lightBlack, lightGray } from "../theme"
 
 export default function Home():JSX.Element {
   return (

@@ -2,12 +2,22 @@ import React from "react"
 import Box from "@mui/material/Box"
 import { Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
-import TwitterIcon from "@mui/icons-material/Twitter"
 
 //@ts-ignore
 import Container from "../Container"
-import { lightGray } from "../../theme"
+import { honeyDew, lightGray } from "../../theme"
+
+const textStyle = {
+  mr: 2,
+  display: { xs: "none", md: "flex" },
+  fontFamily: "monospace",
+  fontWeight: 700,
+  letterSpacing: ".3rem",
+  color: lightGray,
+  textDecoration: "none",
+}
 
 export default function Footer(): JSX.Element {
   return (
@@ -15,64 +25,63 @@ export default function Footer(): JSX.Element {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2} sx={{ paddingTop: 10 }}>
           <Grid item xs={12} md={4} container>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: lightGray,
-                textDecoration: "none",
-              }}
-            >
+            <Typography variant="h6" noWrap sx={textStyle}>
               Alfredo Morales
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} container>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: lightGray,
-                textDecoration: "none",
-              }}
-            >
-              Contact
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4} container justifyContent="space-evenly">
-            <Grid item>
-              <LinkedInIcon
-                fontSize="large"
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/alfredogmorales/",
-                    "_blank"
-                  )
-                }
-                sx={{ color: "#E15538", cursor: "pointer" }}
-              />
+            <Grid item container>
+              <Typography variant="h6" noWrap sx={textStyle}>
+                Contact
+              </Typography>
             </Grid>
             <Grid item>
-              <TwitterIcon
-                fontSize="large"
-                onClick={() =>
-                  window.open("https://twitter.com/Miles_Morales98", "_blank")
-                }
-                sx={{ color: "#E15538", cursor: "pointer" }}
-              />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  color: honeyDew,
+                  textDecoration: "none",
+                }}
+              >
+                agmmendez123@gmail.com
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} md={4} container>
+            <Grid item container>
+              <Typography variant="h6" noWrap component="a" sx={textStyle}>
+                Social
+              </Typography>
+            </Grid>
+            <Grid item container paddingTop={2}>
+              <Grid item>
+                <GitHubIcon
+                  fontSize="large"
+                  onClick={() =>
+                    window.open(
+                      "https://vsco.co/fredomorales/gallery",
+                      "_blank"
+                    )
+                  }
+                  sx={{ color: honeyDew, cursor: "pointer", paddingRight: 5 }}
+                />
+              </Grid>
+              <Grid item>
+                <LinkedInIcon
+                  fontSize="large"
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/alfredogmorales/",
+                      "_blank"
+                    )
+                  }
+                  sx={{ color: honeyDew, cursor: "pointer", paddingRight: 5 }}
+                />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

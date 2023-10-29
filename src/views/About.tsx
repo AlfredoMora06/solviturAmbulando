@@ -1,4 +1,3 @@
-import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
@@ -30,14 +29,11 @@ export default function About():JSX.Element {
                   </Typography>
                 </Grid>
               </Grid>
-              <Grid item xs={12} md={6} container justifyContent={"center"}>
-                <img src={""} alt="LinkedInPic" />
-              </Grid>
             </Grid>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6} container alignItems={"center"}>
+              <Grid item xs={12} md={6} container alignItems="flex-start">
                 <Grid item xs={12}>
-                  <Typography sx={{ color: lightGray }}>
+                  <Typography variant="h6" sx={{ color: lightGray }}>
                     The son of Mexican immigrants, I grew up in Astoria, NY
                     until 2010. After that, I moved to Mexico with my family
                     where I spent the next 6 years living in Oaxaca - going to
@@ -48,7 +44,7 @@ export default function About():JSX.Element {
                     <b>Hunter College</b> with a B.S. in Computer Science.
                   </Typography>
                   <br />
-                  <Typography sx={{ color: lightGray }}>
+                  <Typography variant="h6" sx={{ color: lightGray }}>
                     In 2021, I began my internship with <b>TracFlo</b> a
                     construction-tech company looking to revolutinize one of the
                     least digitized spaces in the world. After 6 months of
@@ -60,7 +56,7 @@ export default function About():JSX.Element {
 
                   <br />
 
-                  <Typography sx={{ color: lightGray }}>
+                  <Typography variant="h6" sx={{ color: lightGray }}>
                     My dream is to better my software engineering skills a bit
                     each day and being a Mexican immigrant myself, help out my
                     community in the U.S and in Mexico - by adding my knowledger
@@ -72,7 +68,6 @@ export default function About():JSX.Element {
                   </Typography>
                 </Grid>
               </Grid>
-              {/** TODO -- Card here listing my work over the past couple of years. */}
               <Grid item xs={12} md={6} container justifyContent={"center"}>
                 <WorkCard />
               </Grid>

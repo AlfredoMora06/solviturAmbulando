@@ -10,7 +10,6 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
-import LinkedInIcon from "@mui/icons-material/LinkedIn"
 
 import { lightGray } from "../theme"
 
@@ -114,18 +113,6 @@ export default function Navbar (
                 {page.title}
               </Button>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <LinkedInIcon
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/alfredogmorales/",
-                  "_blank"
-                )
-              }
-              sx={{ color: dark ? lightGray : "black", cursor: "pointer" }}
-            />
           </Box>
         </Toolbar>
       </Container>

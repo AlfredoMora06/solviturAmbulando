@@ -1,3 +1,4 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Theme, Typography } from "@mui/material"
 import Button from "@mui/material/Button"
@@ -81,12 +82,25 @@ const projects = [
 
 const useStyles = makeStyles<Theme>((theme) => ({
   button: {
+    overflow: "hidden",
     "&:hover": {
-      opacity: 0.3,
       "& img": {
         outline: `3px solid ${lightGray}`,
+        opacity: 0.3,
+        transform: "scale(1.10)"
       },
+      "& $middle": {
+        opacity: 1
+      }
     },
+  },
+  middle: {
+    opacity: 0,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
   },
 }))
 
@@ -126,7 +140,7 @@ export default function Projects():JSX.Element {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
               {projects.map((project) => {
-                const {image, params} = project
+                const {image, params, title} = project
                 return (
                   <Grid
                     item
@@ -144,7 +158,12 @@ export default function Projects():JSX.Element {
                         window.scrollTo(0, 0)
                       }}
                     >
-                      <img src={image} width="100%" alt="folder" height="340"/>
+                      <img src={image} width="100%" alt="folder" height="340" style={{transition: "transform .2s"}}/>
+                      <div className={classes.middle}>
+                        <Typography variant="h5" style={{color: lightGray, fontWeight: 700}}>
+                          {title}
+                        </Typography>
+                      </div>
                     </Button>
                   </Grid>
                 )

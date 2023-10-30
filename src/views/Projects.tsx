@@ -1,7 +1,9 @@
 import Box from "@mui/material/Box"
-import { Typography } from "@mui/material"
+import { Theme, Typography } from "@mui/material"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
+import { makeStyles } from "@mui/styles"
+import { useNavigate } from "react-router-dom"
 
 //@ts-ignore
 import Container from "../components/Container"
@@ -20,11 +22,13 @@ import Navbar from "../components/Navbar"
 //@ts-ignore
 import Earworm from "../assets/Earworm.png"
 import Footer from "../components/sections/Footer"
-import { lightBlack, lightGray } from "../theme"
+import { honeyDew, lightBlack, lightGray } from "../theme"
+
 
 const projects = [
   {
     title: "Earworm",
+    params: "earworm",
     image: Earworm,
     description:
       "A music visualization and exploration tool based on Billboard’s Year-End charts from 1970-2020. Provides an overview of the albums on every chart year as well as data visualization to offer insights on the way music trends develop over time.",
@@ -32,7 +36,8 @@ const projects = [
     demo: "https://earwrm.io/",
   },
   {
-    title: "CUNYHub",
+    title: "CUNY Hub",
+    params:"cuny-hub",
     image: CunyHub,
     description:
       "A hub for CUNY School information and relations between CUNY schools. Attending NYC high schools we noticed there isn’t somewhere we can find info on CUNY schools all in one place. It’s hard to find what you’re looking for if you don’t know where to look.",
@@ -41,6 +46,7 @@ const projects = [
   },
   {
     title: "Recipe Finder",
+    params: "recipe-finder",
     image: RecipeFinder,
     description:
       "You don't know what to cook? RecipeFinder finds it for you! Recipe Finder allows you to search recipes based on the ingredients you have to your disposal. By registering with us, you can save recipes you like for future reference, and also order recipes from our store of recipes.",
@@ -48,6 +54,7 @@ const projects = [
   },
   {
     title: "CUNY Yak",
+    params: "cuny-yak",
     image: CunyYak,
     description:
       "For people who need someone to talk to in a local radius. A social media based app to satisfy the theme of helping with the transitioning from work to the home. The application has the user post thoughts like a discussion post.",
@@ -55,6 +62,7 @@ const projects = [
   },
   {
     title: "Green Print",
+    params: "green-print",
     image: GreenPrint,
     description:
       "What's your green print in the world? An under-construction web application built with Flask that traces individual carbon emissions (CO2 levels) for household products and vehicles, and returns their carbon footprint.",
@@ -63,6 +71,7 @@ const projects = [
 
   {
     title: "Creativo",
+    params: "creativo",
     image: creativo,
     description:
       "A website that shows photos of NYC and a blog of responses towards Media articles of our current lives.",
@@ -70,17 +79,21 @@ const projects = [
   },
 ]
 
-const sx = {
-  hover: {
+const useStyles = makeStyles<Theme>((theme) => ({
+  button: {
     "&:hover": {
-      color: "#3751FF",
-      border: "1px solid #3751FF",
-    }
-  }
-}
+      opacity: 0.3,
+      "& img": {
+        outline: `3px solid ${lightGray}`,
+      },
+    },
+  },
+}))
+
 
 export default function Projects():JSX.Element {
-  // backgroundColor: "#24242c"
+  const classes = useStyles()
+  const navigate = useNavigate()
   return (
     <>
       <div style={{ backgroundColor: lightGray, paddingBottom: 80 }}>
@@ -113,7 +126,7 @@ export default function Projects():JSX.Element {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
               {projects.map((project) => {
-                const {image} = project
+                const {image, params} = project
                 return (
                   <Grid
                     item
@@ -123,11 +136,17 @@ export default function Projects():JSX.Element {
                     justifyContent={"center"}
                     style={{ paddingTop: 40 }}
                   >
-                    <Button variant="text" sx={{ display: "flex", flexDirection: "column"}}>
-                      <img src={image} width="100%" alt="folder" className={"hover"}/>
+                    <Button 
+                      variant="text" 
+                      className={classes.button}
+                      onClick={() => {
+                        navigate(`/0/projects/${params}`, {state: project})
+                        window.scrollTo(0, 0)
+                      }}
+                    >
+                      <img src={image} width="100%" alt="folder" height="340"/>
                     </Button>
                   </Grid>
-
                 )
               })}
             </Grid>
@@ -138,6 +157,7 @@ export default function Projects():JSX.Element {
         style={{
           backgroundColor: lightBlack,
           paddingBottom: 80,
+          borderTop: `1px solid ${honeyDew}`,
         }}
       >
         <Footer />

@@ -28,7 +28,7 @@ export default function AlfredoHere():JSX.Element {
     <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6} container direction="row">
+          <Grid item xs={12} md={6} container>
             <Grid item xs={12}>
               <Typography fontSize={22}>
                 ¡Hola mi gente! Yo soy Alfredo, a <b>fullstack software engineer</b>{" "}

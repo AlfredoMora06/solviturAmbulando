@@ -11,8 +11,7 @@ export default function Home():JSX.Element {
       <div
         style={{
           backgroundColor: lightGray,
-          paddingBottom: 80,
-          height: "100vh",
+          paddingBottom: 100,
         }}
       >
         <Navbar dark={false} />

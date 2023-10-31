@@ -11,7 +11,7 @@ import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
 
-import { lightGray } from "../theme"
+import { lightBlack, lightGray } from "../theme"
 
 const pages = [
   { title: "About Me", link: "../0/about" },
@@ -36,6 +36,11 @@ export default function Navbar (
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
+  }
+
+  const handleCloseNavMenuRedirect = (link: string) => {
+    setAnchorElNav(null)
+    navigate(link)
   }
 
   return (
@@ -70,7 +75,7 @@ export default function Navbar (
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              style={{color: dark ? lightGray : lightBlack}}
             >
               <MenuIcon />
             </IconButton>
@@ -93,7 +98,7 @@ export default function Navbar (
               }}
             >
               {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
@@ -106,7 +111,7 @@ export default function Navbar (
                 onClick={() => navigate(page.link)}
                 sx={{
                   my: 2,
-                  color: dark ? lightGray : "black",
+                  color: dark ? lightGray : lightBlack,
                   display: "block",
                   fontSize: 16,
                 }}

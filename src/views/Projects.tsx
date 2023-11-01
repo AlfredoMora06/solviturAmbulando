@@ -1,12 +1,10 @@
 import Box from "@mui/material/Box"
-import { Fade, Theme, Typography } from "@mui/material"
+import { Fade, Theme, Typography, Container } from "@mui/material"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
 import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
 
-//@ts-ignore
-import Container from "../components/Container"
 //@ts-ignore
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"

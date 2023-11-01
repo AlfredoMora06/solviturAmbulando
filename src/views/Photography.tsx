@@ -1,8 +1,7 @@
-import { Box, Grid, Typography } from "@mui/material"
-import Navbar from "../components/Navbar"
+import { Box, Grid, Typography, Container } from "@mui/material"
 import { honeyDew, lightBlack, lightGray } from "../theme"
-//@ts-ignore
-import Container from "../components/Container"
+
+import Navbar from "../components/Navbar"
 import PhotoTabs from "../components/sections/PhotoTabs"
 import Footer from "../components/sections/Footer"
 
@@ -13,7 +12,7 @@ export default function Photography():JSX.Element {
       <div
         style={{
           backgroundColor: lightBlack,
-          paddingBottom: 50,
+          paddingBottom: 70,
           minHeight: "100vh",
         }}
       >

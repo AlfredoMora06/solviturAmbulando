@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box"
-import { Container, Typography } from "@mui/material"
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import Fade from '@mui/material/Fade'
 
@@ -12,6 +12,9 @@ import Footer from "../components/sections/Footer"
 
 
 export default function About():JSX.Element {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+
   return (
     <>
       <div
@@ -27,7 +30,12 @@ export default function About():JSX.Element {
                 <Grid item xs={12}>
                   <Typography
                     variant="h1"
-                    style={{ fontSize: 65, fontWeight: 700, color: lightGray }}
+                    style={{ 
+                      fontSize: 65, 
+                      fontWeight: 700, 
+                      color: lightGray,
+                      textAlign: isMobile ? "center" : "left"
+                    }}
                   >
                     Una vida sin explorar no merece ser vivida!
                   </Typography>

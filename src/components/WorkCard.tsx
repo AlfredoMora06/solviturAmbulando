@@ -8,7 +8,7 @@ import { honeyDew, lightBlack, lightGray } from "../theme"
 
 type Experience = {
   workTitle: string,
-  image: string,
+  image?: string,
   position: string,
   date: string,
 }
@@ -17,8 +17,14 @@ const workExperiences: Experience[] = [
   {
     workTitle: "TracFlo",
     image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
+    position: "Software Engineer II",
+    date: "Sept 2023 - Present"
+  },
+  {
+    workTitle: "TracFlo",
+    image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
     position: "Software Engineer I",
-    date: "Jan 2022 - Present"
+    date: "Jan 2022 - Aug 2023"
   },
   {
     workTitle: "TracFlo",
@@ -87,7 +93,7 @@ export default function WorkCard():JSX.Element {
             return (
               <Grid item container xs={12} paddingTop={3}>
                 <Grid item container xs={2}>
-                  <img style={imageStyle} src={image} alt="work"/>
+                  {image != null ? <img style={imageStyle} src={image} alt="work"/> : <></>}
                 </Grid>
                 <Grid item container xs={10}>
                   <Grid item xs={12}>

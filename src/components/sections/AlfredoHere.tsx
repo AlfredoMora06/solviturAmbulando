@@ -1,9 +1,7 @@
 import Box from "@mui/material/Box"
-import { Fade, Slide, Typography } from "@mui/material"
+import { Fade, Slide, Typography, Container, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
-//@ts-ignore
-import Container from "../Container"
 //@ts-ignore
 import SunsetTezo from "../../assets/SunsetTezo.jpg"
 //@ts-ignore
@@ -24,9 +22,12 @@ const imageStyle = {
 
 
 export default function AlfredoHere():JSX.Element {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+
   return (
     <Container>
-      <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
+      <Box sx={{ flexGrow: 1, paddingTop: 8 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} container>
             <Grid item xs={12}>
@@ -128,7 +129,16 @@ export default function AlfredoHere():JSX.Element {
           <Grid item xs={12} md={6} container>
             <Grid item container paddingBottom={1}>
               <Fade in={true} timeout={1000}>
-                <Grid item container xs={12} md={7} alignContent="flex-end" paddingRight={1}>
+                <Grid 
+                  item 
+                  container 
+                  xs={12} 
+                  md={7} 
+                  alignContent="flex-end" 
+                  paddingRight={1} 
+                  paddingBottom={isMobile ? 3 : 0}
+                  paddingTop={isMobile ? 10 : 0}
+                >
                   <img
                     src={SunsetTezo}
                     alt="tezo"
@@ -136,9 +146,7 @@ export default function AlfredoHere():JSX.Element {
                   />
                 </Grid>
               </Fade>
-              <Grid item container xs={12} md={5} alignContent="flex-end">
-                <Grid item container bgcolor={"#E05437"}>
-                </Grid>
+              <Grid item container xs={12} md={5} alignContent="flex-end" paddingBottom={isMobile ? 3 : 0}>
                 <Slide direction="down" in={true} unmountOnExit timeout={1000}>
                   <img
                     src={SelfBrick}
@@ -149,7 +157,7 @@ export default function AlfredoHere():JSX.Element {
               </Grid>
             </Grid>
             <Grid item container>
-              <Grid item xs={12} md={5}>
+              <Grid item xs={12} md={5} paddingBottom={isMobile ? 4 : 0}>
                 <Slide direction="up" in={true} unmountOnExit timeout={1000}>
                   <img
                     src={BaliPose}
@@ -159,7 +167,7 @@ export default function AlfredoHere():JSX.Element {
                 </Slide>
               </Grid>
               <Fade in={true} timeout={1000}>
-                <Grid item xs={12} md={7} paddingLeft={1}>
+                <Grid item xs={12} md={7} paddingLeft={1} paddingBottom={isMobile ? 4 : 0}>
                   <img
                     src={Abril}
                     alt="abril"

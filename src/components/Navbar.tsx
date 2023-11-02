@@ -12,8 +12,12 @@ import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
 
 import { lightBlack, lightGray } from "../theme"
+import { useMediaQuery, useTheme } from "@mui/material"
+//@ts-ignore
+import ResumePdf from "../assets/Alfredo_Morales_Resume.pdf"
 
 const pages = [
+  { title: "Home", link: "../0/home"},
   { title: "About Me", link: "../0/about" },
   { title: "Resume", link: "../0/resume" },
   { title: "Projects", link: "../0/projects" },
@@ -27,6 +31,8 @@ type NavbarProps = {
 export default function Navbar (
   { dark }: NavbarProps
 ): JSX.Element {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const navigate = useNavigate()
 
@@ -82,10 +88,7 @@ export default function Navbar (
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "left"}}
               keepMounted
               transformOrigin={{
                 vertical: "top",
@@ -93,15 +96,20 @@ export default function Navbar (
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
+              sx={{ display: { xs: "block", md: "none" }}}
             >
-              {pages.map((page, index) => (
-                <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
-                  <Typography textAlign="center">{page.title}</Typography>
-                </MenuItem>
-              ))}
+              { pages.map((page, index) => {
+                return isMobile && page.title === "Resume"
+                  ? <MenuItem key={index}>  
+                    <a href={ResumePdf} download="AlfredoResume" target='_blank' style={{textDecoration: "none", color: "inherit"}} rel="noreferrer">
+                      <Typography textAlign="center">{page.title}</Typography>
+                    </a>
+                  </MenuItem>
+                  : <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>  
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                }
+              )}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

@@ -143,6 +143,7 @@ export default function AlfredoHere():JSX.Element {
                     src={SunsetTezo}
                     alt="tezo"
                     style={imageStyle}
+                    placeholder="blur"
                   />
                 </Grid>
               </Fade>
@@ -152,6 +153,7 @@ export default function AlfredoHere():JSX.Element {
                     src={SelfBrick}
                     alt="brickwall"
                     style={imageStyle}
+                    placeholder="blur"
                   />
                 </Slide>
               </Grid>
@@ -163,6 +165,7 @@ export default function AlfredoHere():JSX.Element {
                     src={BaliPose}
                     alt="bali"
                     style={imageStyle}
+                    placeholder="blur"
                   />
                 </Slide>
               </Grid>
@@ -172,6 +175,7 @@ export default function AlfredoHere():JSX.Element {
                     src={Abril}
                     alt="abril"
                     style={imageStyle}
+                    placeholder="blur"
                   />
                 </Grid>
               </Fade>

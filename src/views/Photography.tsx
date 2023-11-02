@@ -23,7 +23,7 @@ export default function Photography():JSX.Element {
         <Container sx={{ paddingY: 8 }}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} paddingBottom={5}>
-              <Grid item xs={12} md={6} container alignItems={"center"}>
+              <Grid item xs={12} md={7} container alignItems={"center"}>
                 <Grid item xs={12}>
                   <Typography 
                     variant="h1" 

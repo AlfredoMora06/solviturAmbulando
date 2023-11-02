@@ -1,17 +1,14 @@
-import { CardContent, Grid, Typography } from "@mui/material"
+import { CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import Card from "@mui/material/Card"
 import WorkIcon from "@mui/icons-material/Work"
 import SchoolIcon from '@mui/icons-material/School'
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
 
 import { honeyDew, lightBlack, lightGray } from "../theme"
+import WorkItemMobile from "./WorkItemMobile"
+import { Experience } from "../types/Experience"
 
-type Experience = {
-  workTitle: string,
-  image?: string,
-  position: string,
-  date: string,
-}
 
 const workExperiences: Experience[] = [
   {
@@ -74,28 +71,53 @@ const imageStyle = {
   width: "45px",
   height: "45px",
   border: `3px solid ${honeyDew}`,
-  borderRadius: "500px"
+  borderRadius: "500px",
+  filter: `drop-shadow(5px 5px rgba(159, 184, 173, 0.3))`
 }
 
 
 export default function WorkCard():JSX.Element {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
   return (
-    <Card sx={{ backgroundColor: lightBlack, width: 450, border: "0.4px solid rgba(230, 232, 230, 0.4)" }}>
+    <Card 
+      sx={{ 
+        backgroundColor: lightBlack, 
+        width: 450, 
+        border: "0.4px solid rgba(230, 232, 230, 0.4)", 
+        filter: `drop-shadow(0px 5px rgba(230, 232, 230, 0.1))` 
+      }}>
       <CardContent>
         <Grid container>
           <Grid item container xs={12} paddingTop={2}>
-            <WorkIcon sx={{ color: lightGray, paddingRight: 3 }} />
-            <Typography color={lightGray}>Work</Typography>
+            <Grid item container xs={6}>
+              <WorkIcon sx={{ color: lightGray, paddingRight: 3 }} />
+              <Typography color={lightGray}>Work</Typography>
+            </Grid>
+            <Grid item container xs={6} justifyContent="flex-end">
+              <LinkedInIcon
+                fontSize="medium"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/alfredogmorales/",
+                    "_blank"
+                  )
+                }
+                sx={{ color: "white", cursor: "pointer" }}
+              />
+            </Grid>
           </Grid>
           {workExperiences.map((work) => {
             const {workTitle, position, date, image} = work
-            return (
+            return isMobile ?
+              <WorkItemMobile work={work} key={`${workTitle}-${position}`} />
+            : (
               <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   {image != null ? <img loading="lazy" style={imageStyle} src={image} alt="work"/> : <></>}
                 </Grid>
-                <Grid item container xs={10}>
+                <Grid item container xs={10} paddingLeft={isMobile ? 2: 0}>
                   <Grid item xs={12}>
                     <Typography color={lightGray}>{workTitle}</Typography>
                   </Grid>
@@ -121,7 +143,9 @@ export default function WorkCard():JSX.Element {
           </Grid>
           {educationExperiences.map((work) => {
             const {workTitle, position, date, image} = work
-            return (
+            return isMobile ?
+              <WorkItemMobile work={work} key={`${workTitle}-${position}`} />
+            : (
               <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   <img style={imageStyle} src={image} alt="education"/>
@@ -154,7 +178,9 @@ export default function WorkCard():JSX.Element {
 
           {volunteerExperiences.map((work) => {
             const {workTitle, position, date, image} = work
-            return (
+            return isMobile ?
+              <WorkItemMobile work={work} key={`${workTitle}-${position}`} />
+            : (
               <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   <img style={imageStyle} src={image} alt="volunteer"/>

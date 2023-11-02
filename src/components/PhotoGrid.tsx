@@ -28,6 +28,7 @@ export default function PhotoGrid(
                       src={`${src}?w=161&fit=crop&auto=format`}
                       alt={"missing"}
                       loading="lazy"
+                      placeholder="blur"
                     />
                   </ImageListItem>
                 </Fade>

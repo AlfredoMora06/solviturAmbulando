@@ -1,11 +1,9 @@
 import Box from "@mui/material/Box"
-import { Typography } from "@mui/material"
+import { Container, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 
-//@ts-ignore
-import Container from "../Container"
 import { honeyDew, lightGray } from "../../theme"
 
 const textStyle = {

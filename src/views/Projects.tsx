@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box"
-import { Fade, Theme, Typography, Container } from "@mui/material"
+import { Fade, Theme, Typography, Container, useTheme, useMediaQuery } from "@mui/material"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
 import { makeStyles } from "@mui/styles"
@@ -40,6 +40,9 @@ const useStyles = makeStyles<Theme>((theme) => ({
 export default function Projects():JSX.Element {
   const classes = useStyles()
   const navigate = useNavigate()
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+
   return (
     <>
       <div style={{ backgroundColor: lightGray, paddingBottom: 80 }}>
@@ -48,12 +51,19 @@ export default function Projects():JSX.Element {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container>
               <Grid item xs={12} md={9}>
-                <Typography variant="h1" style={{ fontSize: 65, fontWeight: 700}}>
+                <Typography 
+                  variant="h1" 
+                  style={{ 
+                    fontSize: isMobile ? 55 : 65, 
+                    fontWeight: 700,
+                    textAlign: isMobile ? "center" : "left"
+                  }}
+                >
                   These Are My Projects!
                 </Typography>
               </Grid>
               <Grid item container xs={12} md={9} sx={{ paddingTop: 5 }}>
-                <Typography variant="h5">
+                <Typography variant="h5" style={{ textAlign: isMobile ? "center" : "left" }}>
                   A collection of programming work I've done. Enjoy!
                 </Typography>
               </Grid>
@@ -74,7 +84,7 @@ export default function Projects():JSX.Element {
               {projects.map((project) => {
                 const {image, params, title} = project
                 return (
-                  <Fade in={true} timeout={1800}>
+                  <Fade in={true} timeout={1800} key={title}>
                     <Grid
                       item
                       xs={12}

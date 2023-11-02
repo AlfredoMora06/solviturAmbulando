@@ -1,9 +1,7 @@
 import Box from "@mui/material/Box"
-import { Fade, Grow, ImageList, ImageListItem, Typography } from "@mui/material"
+import { Container, Fade, Grow, ImageList, ImageListItem, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
-//@ts-ignore
-import Container from "../Container"
 import { lightGray } from "../../theme"
 
 
@@ -11,11 +9,12 @@ type ProjectBodyProps = {
   projectImage: string,
   projectTitle: string,
   myRole: string,
-  photoArrayList: string[]
+  photoArrayList: string[],
+  isMobile: boolean,
 }
 
 export default function ProjectBody(
-  {projectImage, projectTitle, myRole, photoArrayList}: ProjectBodyProps
+  {projectImage, projectTitle, myRole, photoArrayList, isMobile}: ProjectBodyProps
 ):JSX.Element {
 
 
@@ -37,12 +36,24 @@ export default function ProjectBody(
           </Grid>
 
           <Fade in={true} timeout={1000}>
-            <Grid item container xs={12} md={5} paddingLeft={5}>
+            <Grid 
+              item 
+              container 
+              xs={12} 
+              md={5} 
+              paddingLeft={isMobile ? 0 : 5} 
+              paddingTop={isMobile ? 5 : 0}
+              justifyContent={isMobile ? "center" : "flex-start"}
+            >
               <Typography variant="h3" style={{fontWeight: 700, color: lightGray}}>
                 My Role
               </Typography>
   
-              <Typography variant="h6" style={{fontWeight: 500, color: lightGray}}>
+              <Typography 
+                variant="h6" 
+                style={{fontWeight: 500, color: lightGray}}
+                paddingTop={isMobile ? 5 : 0}
+              >
                 {myRole}
               </Typography>
             </Grid>

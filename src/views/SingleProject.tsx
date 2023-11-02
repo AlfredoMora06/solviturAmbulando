@@ -1,3 +1,4 @@
+import { useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 import {useLocation, useNavigate} from 'react-router-dom'
 
@@ -11,6 +12,8 @@ export default function SingleProject():JSX.Element {
   const location = useLocation()
   const navigate = useNavigate()
   const photoArrayList:string[] = []
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
   if(location.state.image2) photoArrayList.push(location.state.image2)
   if(location.state.image3) photoArrayList.push(location.state.image3)
@@ -41,12 +44,14 @@ export default function SingleProject():JSX.Element {
           projectDescription={location.state.description}
           githubLink={location.state.code}
           demoLink={location.state.demo ?? null}
+          isMobile={isMobile}
         />
         <ProjectBody
           projectImage={location.state.image}
           projectTitle={location.state.title}
           myRole={location.state.myRole ?? ""}
           photoArrayList={photoArrayList}
+          isMobile={isMobile}
         />
       </div>
       <div

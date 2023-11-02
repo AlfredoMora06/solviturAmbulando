@@ -1,4 +1,3 @@
-import React from "react"
 import Box from "@mui/material/Box"
 import { Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
@@ -11,7 +10,7 @@ import { honeyDew, lightGray } from "../../theme"
 
 const textStyle = {
   mr: 2,
-  display: { xs: "none", md: "flex" },
+  display: "flex",
   fontFamily: "monospace",
   fontWeight: 700,
   letterSpacing: ".3rem",
@@ -23,7 +22,7 @@ export default function Footer(): JSX.Element {
   return (
     <Container>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} sx={{ paddingTop: 10 }}>
+        <Grid container spacing={2} sx={{ paddingTop: 8 }}>
           <Grid item xs={12} md={4} container>
             <Typography variant="h6" noWrap sx={textStyle}>
               Alfredo Morales

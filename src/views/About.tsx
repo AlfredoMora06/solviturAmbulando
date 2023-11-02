@@ -46,6 +46,7 @@ export default function About():JSX.Element {
               <Fade in={true} timeout={1000}>
                 <Grid item container xs={12} md={4} justifyContent="center">
                   <img 
+                    loading="lazy"
                     src={ChildhoodPic} 
                     alt="family" 
                     style={{

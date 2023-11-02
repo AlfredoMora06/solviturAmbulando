@@ -25,7 +25,8 @@ export default function ProjectBody(
         <Grid item container>
           <Grid item container xs={12} md={7}>
             <Grow in={true} timeout={1000}>
-              <img 
+              <img
+                loading="lazy" 
                 src={projectImage}
                 alt={projectTitle}
                 style={{
@@ -71,6 +72,7 @@ export default function ProjectBody(
             ? <Grid item container xs={12} md={6} paddingTop={5}>
               <Grow in={true} timeout={1000}>
                 <img 
+                  loading="lazy"
                   src={photoArrayList[0]}
                   alt={projectTitle}
                   style={{ width: "98%" }}
@@ -84,6 +86,7 @@ export default function ProjectBody(
             ? <Grid item container xs={12} md={6} paddingTop={5}>
               <Grow in={true} timeout={1000}>
                 <img 
+                  loading="lazy"
                   src={photoArrayList[1]}
                   alt={projectTitle}
                   style={{ width: "100%" }}

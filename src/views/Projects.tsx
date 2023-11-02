@@ -91,7 +91,7 @@ export default function Projects():JSX.Element {
                           window.scrollTo(0, 0)
                         }}
                       >
-                        <img src={image} width="100%" alt="folder" height="340" style={{transition: "transform .2s"}}/>
+                        <img loading="lazy" src={image} width="100%" alt="folder" height="100%" style={{transition: "transform .2s"}}/>
                         <div className={classes.middle}>
                           <Typography variant="h5" style={{color: lightGray, fontWeight: 700}}>
                             {title}

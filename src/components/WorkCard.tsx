@@ -93,7 +93,7 @@ export default function WorkCard():JSX.Element {
             return (
               <Grid item container xs={12} paddingTop={3}>
                 <Grid item container xs={2}>
-                  {image != null ? <img style={imageStyle} src={image} alt="work"/> : <></>}
+                  {image != null ? <img loading="lazy" style={imageStyle} src={image} alt="work"/> : <></>}
                 </Grid>
                 <Grid item container xs={10}>
                   <Grid item xs={12}>

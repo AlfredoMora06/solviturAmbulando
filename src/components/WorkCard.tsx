@@ -91,7 +91,7 @@ export default function WorkCard():JSX.Element {
           {workExperiences.map((work) => {
             const {workTitle, position, date, image} = work
             return (
-              <Grid item container xs={12} paddingTop={3}>
+              <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   {image != null ? <img loading="lazy" style={imageStyle} src={image} alt="work"/> : <></>}
                 </Grid>
@@ -122,7 +122,7 @@ export default function WorkCard():JSX.Element {
           {educationExperiences.map((work) => {
             const {workTitle, position, date, image} = work
             return (
-              <Grid item container xs={12} paddingTop={3}>
+              <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   <img style={imageStyle} src={image} alt="education"/>
                 </Grid>
@@ -155,7 +155,7 @@ export default function WorkCard():JSX.Element {
           {volunteerExperiences.map((work) => {
             const {workTitle, position, date, image} = work
             return (
-              <Grid item container xs={12} paddingTop={3}>
+              <Grid item container xs={12} paddingTop={3} key={`${workTitle}-${position}`}>
                 <Grid item container xs={2}>
                   <img style={imageStyle} src={image} alt="volunteer"/>
                 </Grid>

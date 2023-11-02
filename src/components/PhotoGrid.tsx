@@ -22,7 +22,7 @@ export default function PhotoGrid(
             {photos.map((photo) => {
               const {src} = photo
               return (
-                <Fade in={true} timeout={800}>
+                <Fade in={true} timeout={800} key={photo.src}>
                   <ImageListItem key={src}>
                     <img
                       src={`${src}?w=161&fit=crop&auto=format`}

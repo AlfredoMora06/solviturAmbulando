@@ -23,7 +23,7 @@ export default function About():JSX.Element {
         }}
       >
         <Navbar dark={true} />
-        <Container sx={{ paddingY: 10 }}>
+        <Container sx={{ paddingY: 8 }}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} paddingBottom={10}>
               <Grid item xs={12} md={6} container alignItems={"center"}>
@@ -31,7 +31,7 @@ export default function About():JSX.Element {
                   <Typography
                     variant="h1"
                     style={{ 
-                      fontSize: 65, 
+                      fontSize: isMobile ? 55 : 65, 
                       fontWeight: 700, 
                       color: lightGray,
                       textAlign: isMobile ? "center" : "left"

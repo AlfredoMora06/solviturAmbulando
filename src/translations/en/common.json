@@ -51,7 +51,9 @@
     "subtitle": "A collection of programming work I've done. Enjoy!",
     "title": "These Are My Projects!",
     "SingleProject": {
-      "code": "Code"
+      "code": "Code",
+      "demo": "Demo",
+      "myRole": "My Role"
     }
   }
 }

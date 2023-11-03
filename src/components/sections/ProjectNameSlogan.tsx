@@ -70,7 +70,7 @@ export default function ProjectNameSlogan(
                     style={{color: darkOrange}}
                     size="large"
                   >
-                    Demo
+                    {t("Projects.SingleProject.demo")}
                   </Button>
                   : <></>
                 }

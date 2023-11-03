@@ -10,28 +10,14 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useTranslation } from "react-i18next"
 
 import { lightBlack, lightGray } from "../theme"
 import { useMediaQuery, useTheme } from "@mui/material"
 //@ts-ignore
 import ResumePdf from "../assets/Alfredo_Morales_Resume.pdf"
-import { updateLanguage } from "../store/features/profileSlice"
-
-const pages = [
-  { title: "About Me", link: "../0/about" },
-  { title: "Resume", link: "../0/resume" },
-  { title: "Projects", link: "../0/projects" },
-  { title: "Photography", link: "../0/photography"},
-]
-
-const pagesMobile = [
-  { title: "Home", link: "../0/home"},
-  { title: "About Me", link: "../0/about" },
-  { title: "Resume", link: "../0/resume" },
-  { title: "Projects", link: "../0/projects" },
-  { title: "Photography", link: "../0/photography"},
-]
+import { getProfile, updateLanguage } from "../store/features/profileSlice"
 
 type NavbarProps = {
   dark: boolean
@@ -42,8 +28,26 @@ export default function Navbar (
 ): JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const profile = useSelector(getProfile)
+  const {i18n, t} = useTranslation("common")
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElNavLan, setAnchorElNavLan] = React.useState(null)
+
+  const pages = [
+    { title: t("Navbar.about"), link: "../0/about" },
+    { title: t("Navbar.resume"), link: "../0/resume" },
+    { title: t("Navbar.projects"), link: "../0/projects" },
+    { title: t("Navbar.photography"), link: "../0/photography"},
+  ]
+  
+  const pagesMobile = [
+    { title: t("Navbar.home"), link: "../0/home"},
+    { title: t("Navbar.about"), link: "../0/about" },
+    { title: t("Navbar.resume"), link: "../0/resume" },
+    { title: t("Navbar.projects"), link: "../0/projects" },
+    { title: t("Navbar.photography"), link: "../0/photography"},
+  ]
+  
 
   const location = useLocation()  
   const navigate = useNavigate()
@@ -74,8 +78,14 @@ export default function Navbar (
 
   const handleCloseNavMenuLanRefresh = (language: string) => {
     dispatch(updateLanguage(language))
-
   }
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
 
   return (
     <AppBar
@@ -168,7 +178,7 @@ export default function Navbar (
             })}
           </Box>
 
-          { !showLanguage ? <Box>
+          { showLanguage ? <Box>
             <Button
               variant="text"
               onClick={handleOpenNavMenuLan}
@@ -178,7 +188,7 @@ export default function Navbar (
                 fontSize: 16,
               }}
             >
-              Language
+              {t("Navbar.language")}
             </Button>
             <Menu
               anchorEl={anchorElNavLan}

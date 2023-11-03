@@ -83,26 +83,13 @@ export default function About():JSX.Element {
                   </Typography>
                   <br />
                   <Typography variant="h6" sx={{ color: lightGray }}>
-                    In 2021, I began my internship with <b>TracFlo</b> a
-                    construction-tech company looking to revolutinize one of the
-                    least digitized spaces in the world. After 6 months of
-                    working with them and being part of their incredible
-                    journey, we decided to make the transition into full-time.I
-                    began working with TracFlo as a Software Engineer in the
-                    beginning of 2022.
+                    {t("About.secondParagraph")}
                   </Typography>
 
                   <br />
 
                   <Typography variant="h6" sx={{ color: lightGray }}>
-                    My dream is to better my software engineering skills a bit
-                    each day and being a Mexican immigrant myself, help out my
-                    community in the U.S and in Mexico - by adding my knowledger
-                    into developing curriculums. In my spare time, you can find
-                    me playing soccer, running or most recently (weightlifting).
-                    I also enjoy hiking, going to a good comedy club, or
-                    exploring the foodie recommendations of NYC. Lastly, I've
-                    recently been enjoying Fifa 22 and reading self-help books.
+                    {t("About.thirdParagraph")}
                   </Typography>
                 </Grid>
               </Grid>

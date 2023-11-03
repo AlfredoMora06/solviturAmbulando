@@ -1,8 +1,54 @@
 {
   "About": {
-    "firstParagraph": "Soy hijo de inmigrantes mexicanos. Crecí en Astoria, Nueva York hasta 2010. Después de eso, me mudé a México con mi familia, donde pasé los siguientes 6 años viviendo en Oaxaca, yendo a la escuela y experimentando la vida cotidiana allí. A la edad de 16 años en 2015, decidí dar el salto y lograr el sueño americano y mudarme a Nueva York. Terminé la escuela secundaria allí y en 2021, en medio de una pandemia, me gradué del <b>Hunter College</b> con una licenciatura. en Ciencias de la Computación.",
+    "firstParagraph": "Soy hijo de inmigrantes mexicanos. Crecí en Astoria, Nueva York hasta 2010. Después de eso, me mudé a México con mi familia, donde pasé los siguientes 6 años viviendo en Oaxaca, yendo a la escuela y experimentando la vida cotidiana allí. A la edad de 16 años en 2015, decidí dar el salto y lograr el sueño americano y mudarme a Nueva York. Terminé la escuela secundaria allí y en 2021, en medio de una pandemia, me gradué del Hunter College con una licenciatura. en Ciencias de la Computación.",
+    "secondParagraph": "En 2021, comencé mi pasantía en TracFlo, una empresa de tecnología de la construcción que busca revolucionar uno de los espacios menos digitalizados del mundo. Después de 6 meses de trabajar con ellos y ser parte de su increíble viaje, decidimos hacer la transición a tiempo completo. Comencé a trabajar con TracFlo como ingeniero de software a principios de 2022.",
+    "thirdParagraph": "Mi sueño es mejorar un poco mis habilidades de ingeniería de software cada día y ayudar a mi comunidad en Estados Unidos y México, en todo lo que pueda. En mi tiempo libre, puedes encontrarme jugando fútbol, ​​probando comida nueva en Queens o viajando con mochila por Europa.",
     "WorkCard": {
-      "workTitle": "Trabajo"
+      "apprenticeship": "Aprendizaje",
+      "baComputerScience": "Licenciatura en Ciencias de la Computación",
+      "computerLabAssistant": "Asistente de Laboratorio de Computación",
+      "computerScienceTutor": "Tutor de Informática",
+      "workTitle": "Trabajo",
+      "educationTitle": "Educación",
+      "volunteerTitle": "Voluntario",
+      "productManagementCourse": "Curso de Gestión de Producto",
+      "softwareEngineerI": "Ingeniero de Software I",
+      "softwareEngineerII": "Ingeniero de Software II",
+      "softwareEngineerIntern": "Ingeniero de Software Pasante",
+      "Dates": {
+        "tracflo3": "Sept 2023 - Actualidad",
+        "tracflo2": "Ene 2022 - Aug 2023",
+        "tracflo1": "Jun 2021 - Dic 2021",
+        "cunyK": "Sept 2019 - Jun 2021",
+        "inTheLab": "Sept 2023 - Actualidad",
+        "ctp": "Aug 2020 - Mayo 2021",
+        "hunter": "Aug 2017 - Mayo 2021",
+        "teals": "Mayo 2019 - Jun 2021"
+      }
     }
+  },
+  "Footer": {
+    "contact": "Contacto",
+    "social": "Redes"
+  },
+  "Home": {
+    "firstParagraph": "¡Hola mi gente! Yo soy Alfredo, un ingeniero de software fullstack al que le gusta el frontend y trabajar con equipos de producto. Me apasiona crear herramientas, aprender nuevas tecnologías y poder tomar ideas de un área del conocimiento para extrapolarlas y aplicarlas en otra.",
+    "secondParagraph": "Me especializo en crear aplicaciones web ultrarrápidas con React, Redux, NodeJS y Express.Js contribuyendo en todo el conjunto con un enfoque frontend."
+  },
+  "Navbar": {
+    "about": "Sobre Mi",
+    "home": "Inicio",
+    "language": "Idioma",
+    "projects": "Proyectos",
+    "resume": "Currículum",
+    "photography": "Fotografía"
+  },
+  "Photography": {
+    "subtitle": "Recuerdos congelados con el tiempo, algunos cuentan historias, otros solo me gustan...",
+    "title": "Fotografía"
+  },
+  "Projects": {
+    "subtitle": "Una colección de trabajos de programación que he realizado. ¡Disfruta!",
+    "title": "Estos son mis proyectos!"
   }
 }

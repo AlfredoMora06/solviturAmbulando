@@ -1,15 +1,19 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Fade, Theme, Typography, Container, useTheme, useMediaQuery } from "@mui/material"
 import Button from "@mui/material/Button"
 import Grid from "@mui/material/Grid"
 import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { useTranslation } from "react-i18next"
 
 //@ts-ignore
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import { honeyDew, lightBlack, lightGray } from "../theme"
 import { projects } from "../utils/ProjectsInfo"
+import { getProfile } from "../store/features/profileSlice"
 
 
 const useStyles = makeStyles<Theme>((theme) => ({
@@ -42,6 +46,15 @@ export default function Projects():JSX.Element {
   const navigate = useNavigate()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const profile = useSelector(getProfile)
+  const {i18n, t} = useTranslation("common")
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
 
   return (
     <>
@@ -59,12 +72,12 @@ export default function Projects():JSX.Element {
                     textAlign: isMobile ? "center" : "left"
                   }}
                 >
-                  These Are My Projects!
+                  {t("Projects.title")}
                 </Typography>
               </Grid>
               <Grid item container xs={12} md={9} sx={{ paddingTop: 5 }}>
                 <Typography variant="h5" style={{ textAlign: isMobile ? "center" : "left" }}>
-                  A collection of programming work I've done. Enjoy!
+                  {t("Projects.subtitle")}
                 </Typography>
               </Grid>
             </Grid>

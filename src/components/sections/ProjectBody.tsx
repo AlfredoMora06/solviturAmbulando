@@ -2,11 +2,12 @@ import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Fade, Grow, ImageList, ImageListItem, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
 
 import { lightGray } from "../../theme"
-import { useSelector } from "react-redux"
 import { getProfile } from "../../store/features/profileSlice"
-import { useTranslation } from "react-i18next"
+import { getProjects } from "../../store/features/projectsSlice"
 
 
 type ProjectBodyProps = {
@@ -20,8 +21,8 @@ type ProjectBodyProps = {
 export default function ProjectBody(
   {projectImage, projectTitle, myRole, photoArrayList, isMobile}: ProjectBodyProps
 ):JSX.Element {
-
   const profile = useSelector(getProfile)
+  const projects = useSelector(getProjects)
   const {i18n, t} = useTranslation("common")
 
   React.useEffect(() => {
@@ -31,7 +32,7 @@ export default function ProjectBody(
     }
   }, [i18n, profile.language])
 
-
+  
   return (
     <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
@@ -123,5 +124,5 @@ export default function ProjectBody(
         </Grid>
       </Box>
     </Container>
-  );
+  )
 }

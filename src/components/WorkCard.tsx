@@ -4,6 +4,7 @@ import WorkIcon from "@mui/icons-material/Work"
 import SchoolIcon from '@mui/icons-material/School'
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import { useTranslation } from "react-i18next"
 
 import { honeyDew, lightBlack, lightGray } from "../theme"
 import WorkItemMobile from "./WorkItemMobile"
@@ -79,6 +80,7 @@ const imageStyle = {
 export default function WorkCard():JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const {t} = useTranslation('common')
 
   return (
     <Card 
@@ -93,7 +95,7 @@ export default function WorkCard():JSX.Element {
           <Grid item container xs={12} paddingTop={2}>
             <Grid item container xs={6}>
               <WorkIcon sx={{ color: lightGray, paddingRight: 3 }} />
-              <Typography color={lightGray}>Work</Typography>
+              <Typography color={lightGray}>{t("About.WorkCard.workTitle")}</Typography>
             </Grid>
             <Grid item container xs={6} justifyContent="flex-end">
               <LinkedInIcon

@@ -1,7 +1,10 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Typography, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import Fade from '@mui/material/Fade'
+import { useSelector } from "react-redux"
+import { useTranslation } from "react-i18next"
 
 import Navbar from "../components/Navbar"
 import { honeyDew, lightBlack, lightGray } from "../theme"
@@ -9,11 +12,22 @@ import { honeyDew, lightBlack, lightGray } from "../theme"
 import ChildhoodPic from "../assets/ChildhoodPic.jpg"
 import WorkCard from "../components/WorkCard"
 import Footer from "../components/sections/Footer"
+import { getProfile } from "../store/features/profileSlice"
 
 
 export default function About():JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const profile = useSelector(getProfile)
+  const {i18n, t} = useTranslation("common")
+
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
 
   return (
     <>
@@ -65,14 +79,7 @@ export default function About():JSX.Element {
               <Grid item xs={12} md={6} container alignItems="flex-start">
                 <Grid item xs={12}>
                   <Typography variant="h6" sx={{ color: lightGray }}>
-                    The son of Mexican immigrants, I grew up in Astoria, NY
-                    until 2010. After that, I moved to Mexico with my family
-                    where I spent the next 6 years living in Oaxaca - going to
-                    school and experiencing everyday life there. At the age of
-                    16 in 2015 - I decided to make the jump and achieve the
-                    American Dream and move to NYC. I finished high school there
-                    and in 2021 - midst pandemic - I graduated from{" "}
-                    <b>Hunter College</b> with a B.S. in Computer Science.
+                    {t("About.firstParagraph")}
                   </Typography>
                   <br />
                   <Typography variant="h6" sx={{ color: lightGray }}>

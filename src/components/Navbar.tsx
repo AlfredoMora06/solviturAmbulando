@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -10,13 +10,22 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
+import { useDispatch } from "react-redux"
 
 import { lightBlack, lightGray } from "../theme"
 import { useMediaQuery, useTheme } from "@mui/material"
 //@ts-ignore
 import ResumePdf from "../assets/Alfredo_Morales_Resume.pdf"
+import { updateLanguage } from "../store/features/profileSlice"
 
 const pages = [
+  { title: "About Me", link: "../0/about" },
+  { title: "Resume", link: "../0/resume" },
+  { title: "Projects", link: "../0/projects" },
+  { title: "Photography", link: "../0/photography"},
+]
+
+const pagesMobile = [
   { title: "Home", link: "../0/home"},
   { title: "About Me", link: "../0/about" },
   { title: "Resume", link: "../0/resume" },
@@ -34,19 +43,38 @@ export default function Navbar (
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const [anchorElNav, setAnchorElNav] = React.useState(null)
+  const [anchorElNavLan, setAnchorElNavLan] = React.useState(null)
+
+  const location = useLocation()  
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const bottomBorder = dark ? lightGray : lightBlack
+  const showLanguage = true
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget)
+  }
+
+  const handleOpenNavMenuLan = (event: any) => {
+    setAnchorElNavLan(event.currentTarget)
   }
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
 
+  const handleCloseNavMenuLan = () => {
+    setAnchorElNavLan(null)
+  }
+
   const handleCloseNavMenuRedirect = (link: string) => {
     setAnchorElNav(null)
     navigate(link)
+  }
+
+  const handleCloseNavMenuLanRefresh = (language: string) => {
+    dispatch(updateLanguage(language))
+
   }
 
   return (
@@ -98,7 +126,7 @@ export default function Navbar (
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" }}}
             >
-              { pages.map((page, index) => {
+              { pagesMobile.map((page, index) => {
                 return isMobile && page.title === "Resume"
                   ? <MenuItem key={index}>  
                     <a href={ResumePdf} download="AlfredoResume" target='_blank' style={{textDecoration: "none", color: "inherit"}} rel="noreferrer">
@@ -112,22 +140,63 @@ export default function Navbar (
               )}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page, index) => (
-              <Button
-                key={index}
-                onClick={() => navigate(page.link)}
-                sx={{
-                  my: 2,
-                  color: dark ? lightGray : lightBlack,
-                  display: "block",
-                  fontSize: 16,
-                }}
-              >
-                {page.title}
-              </Button>
-            ))}
+          <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page, index) => {
+              const samePathname = location.pathname === page.link.slice(2)
+              return (
+                <div 
+                  key={index} 
+                  style={{ 
+                    borderBottom: samePathname ? `solid ${bottomBorder}` : ``, 
+                    marginBottom: 2, 
+                    marginTop: 2 
+                  }}
+                >
+                  <Button
+                    variant="text"
+                    onClick={() => navigate(page.link)}
+                    sx={{
+                      color: dark ? lightGray : lightBlack,
+                      display: "block",
+                      fontSize: 16,
+                    }}
+                  >
+                    {page.title}
+                  </Button>
+                </div>
+              )
+            })}
           </Box>
+
+          { !showLanguage ? <Box>
+            <Button
+              variant="text"
+              onClick={handleOpenNavMenuLan}
+              sx={{
+                color: dark ? lightGray : lightBlack,
+                display: "block",
+                fontSize: 16,
+              }}
+            >
+              Language
+            </Button>
+            <Menu
+              anchorEl={anchorElNavLan}
+              anchorOrigin={{ vertical: "bottom", horizontal: "left"}}
+              keepMounted
+              transformOrigin={{ vertical: "top", horizontal: "left"}}
+              open={Boolean(anchorElNavLan)}
+              onClose={handleCloseNavMenuLan}
+            >
+              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("en")}}>  
+                <Typography textAlign="center">English</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("es")}}>  
+                <Typography textAlign="center">Spanish</Typography>
+              </MenuItem>
+            </Menu>
+          </Box> : <></>
+          }
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,8 +1,54 @@
 {
   "About": {
-    "firstParagraph": "I am the son of Mexican immigrants. I grew up in Astoria, NY until 2010. After that, I moved to Mexico with my family where I spent the next 6 years living in Oaxaca - going to school and experiencing everyday life there. At the age of 16 in 2015 - I decided to make the jump and achieve the American Dream and move to NYC. I finished high school there and in 2021 - midst pandemic - I graduated from <b>Hunter College</b> with a B.S. in Computer Science.",
+    "firstParagraph": "I am the son of Mexican immigrants. I grew up in Astoria, NY until 2010. After that, I moved to Mexico with my family where I spent the next 6 years living in Oaxaca - going to school and experiencing everyday life there. At the age of 16 in 2015 - I decided to make the jump and achieve the American Dream and move to NYC. I finished high school there and in 2021 - midst pandemic - I graduated from Hunter College with a B.S. in Computer Science.",
+    "secondParagraph": "In 2021, I began my internship with TracFlo a construction-tech company looking to revolutinize one of the least digitized spaces in the world. After 6 months of working with them and being part of their incredible journey, we decided to make the transition into full-time. I began working with TracFlo as a Software Engineer in the beginning of 2022.",
+    "thirdParagraph": "My dream is to better my software engineering skills a bit each day and help out my community in the U.S and in Mexico, in any way I can. In my spare time, you can find me playing soccer, trying new food around Queens, or backpacking across Europe.",
     "WorkCard": {
-      "workTitle": "Work"
+      "apprenticeship": "Apprenticeship",
+      "baComputerScience": "B.A. Computer Science",
+      "computerLabAssistant": "Computer Lab Assistant",
+      "computerScienceTutor": "Computer Science Tutor",
+      "workTitle": "Work",
+      "educationTitle": "Education",
+      "volunteerTitle": "Volunteer",
+      "productManagementCourse": "Product Management Course",
+      "softwareEngineerI": "Software Engineer I",
+      "softwareEngineerII": "Software Engineer II",
+      "softwareEngineerIntern": "Software Engineer Intern",
+      "Dates": {
+        "tracflo3": "Sept 2023 - Present",
+        "tracflo2": "Jan 2022 - Aug 2023",
+        "tracflo1": "Jun 2021 - Dec 2021",
+        "cunyK": "Sept 2019 - Jun 2021",
+        "inTheLab": "Sept 2023 - Present",
+        "ctp": "Aug 2020 - May 2021",
+        "hunter": "Aug 2017 - May 2021",
+        "teals": "May 2019 - Jun 2021"
+      }
     }
+  },
+  "Footer": {
+    "contact": "Contact",
+    "social": "Social"
+  },
+  "Home": {
+    "firstParagraph": "¡Hola mi gente! Yo soy Alfredo, a fullstack software engineer who likes frontend and working with product teams. I am passionate about creating tools, learning new technologies, and being able to take ideas from one area of ​​knowledge to extrapolate them and apply them in another.",
+    "secondParagraph": "I specialize on building blazing fast web applications with React, Redux, NodeJS and Express.Js contributing across the stack with a frontend focus."
+  },
+  "Navbar": {
+    "about": "About Me",
+    "home": "Home",
+    "language": "Language",
+    "projects": "Projects",
+    "resume": "Resume",
+    "photography": "Photography"
+  },
+  "Photography": {
+    "subtitle": "Memories frozen in time, some tell stories, some solo me gustan...",
+    "title": "Photography"
+  },
+  "Projects": {
+    "subtitle": "A collection of programming work I've done. Enjoy!",
+    "title": "These Are My Projects!"
   }
 }

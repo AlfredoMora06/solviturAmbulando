@@ -1,6 +1,10 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Fade, Slide, Typography, Container, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+
 
 //@ts-ignore
 import SunsetTezo from "../../assets/SunsetTezo.jpg"
@@ -11,6 +15,7 @@ import SelfBrick from "../../assets/SelfBrick.jpg"
 //@ts-ignore
 import BaliPose from "../../assets/BaliPose.jpg"
 import { lightBlack } from "../../theme"
+import { getProfile } from "../../store/features/profileSlice"
 
 
 const imageStyle = {
@@ -24,6 +29,17 @@ const imageStyle = {
 export default function AlfredoHere():JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const profile = useSelector(getProfile)
+
+  const {i18n, t} = useTranslation("common")
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
+
 
   return (
     <Container>
@@ -32,16 +48,11 @@ export default function AlfredoHere():JSX.Element {
           <Grid item xs={12} md={6} container>
             <Grid item xs={12}>
               <Typography fontSize={22}>
-                ¡Hola mi gente! Yo soy Alfredo, a <b>fullstack software engineer</b>{" "}
-                who likes <b>frontend</b> and working with <b>product teams</b>.
-                I am passionate about creating tools, learning new technologies, 
-                and being able to take ideas from one area of ​​knowledge to extrapolate them 
-                and apply them in another. 
+                {t("Home.firstParagraph")}
               </Typography>
               <br/>
               <Typography fontSize={22}>
-                I specialize on building blazing fast web applications with React, 
-                Redux, NodeJS and Express.Js contributing across the stack with a frontend focus.
+                {t("Home.secondParagraph")}
               </Typography>
             </Grid>
             <Grid item container justifyContent="space-between">

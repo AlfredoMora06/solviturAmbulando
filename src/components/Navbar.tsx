@@ -137,7 +137,7 @@ export default function Navbar (
               sx={{ display: { xs: "block", md: "none" }}}
             >
               { pagesMobile.map((page, index) => {
-                return isMobile && page.title === "Resume"
+                return isMobile && page.link === "../0/resume"
                   ? <MenuItem key={index}>  
                     <a href={ResumePdf} download="AlfredoResume" target='_blank' style={{textDecoration: "none", color: "inherit"}} rel="noreferrer">
                       <Typography textAlign="center">{page.title}</Typography>

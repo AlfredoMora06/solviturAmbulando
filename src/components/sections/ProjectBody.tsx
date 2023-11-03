@@ -1,8 +1,12 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Fade, Grow, ImageList, ImageListItem, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 
 import { lightGray } from "../../theme"
+import { useSelector } from "react-redux"
+import { getProfile } from "../../store/features/profileSlice"
+import { useTranslation } from "react-i18next"
 
 
 type ProjectBodyProps = {
@@ -16,6 +20,16 @@ type ProjectBodyProps = {
 export default function ProjectBody(
   {projectImage, projectTitle, myRole, photoArrayList, isMobile}: ProjectBodyProps
 ):JSX.Element {
+
+  const profile = useSelector(getProfile)
+  const {i18n, t} = useTranslation("common")
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
 
 
   return (
@@ -46,7 +60,7 @@ export default function ProjectBody(
               justifyContent={isMobile ? "center" : "flex-start"}
             >
               <Typography variant="h3" style={{fontWeight: 700, color: lightGray}}>
-                My Role
+                {t("Projects.SingleProject.myRole")}
               </Typography>
   
               <Typography 

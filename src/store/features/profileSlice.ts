@@ -5,7 +5,6 @@ const initialState = {
   language: 'en',
 }
 
-
 export const profileSlice = createSlice({
   name: "profile",
   initialState,

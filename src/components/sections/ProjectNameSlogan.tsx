@@ -1,10 +1,14 @@
+import React from "react"
 import Box from "@mui/material/Box"
 import { Button, Container, Fade, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LanguageIcon from '@mui/icons-material/Language'
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
 
 import { darkOrange, lightGray } from "../../theme"
+import { getProfile } from "../../store/features/profileSlice"
 
 
 type ProjectNameSloganProps = {
@@ -18,6 +22,17 @@ type ProjectNameSloganProps = {
 export default function ProjectNameSlogan(
   {projectTitle, projectDescription, githubLink, demoLink, isMobile}: ProjectNameSloganProps
 ):JSX.Element {
+
+  const profile = useSelector(getProfile)
+
+  const {i18n, t} = useTranslation("common")
+
+  React.useEffect(() => {
+    // switch to profile preferred language
+    if (i18n.language !== profile.language) {
+      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
+    }
+  }, [i18n, profile.language])
 
   return (
     <Container>
@@ -45,7 +60,7 @@ export default function ProjectNameSlogan(
                   style={{color: darkOrange}}
                   size="large"
                 >
-                  Code
+                  {t("Projects.SingleProject.code")}
                 </Button>
                 { demoLink != null
                   ? <Button

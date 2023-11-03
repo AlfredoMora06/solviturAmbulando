@@ -8,7 +8,7 @@ export default function Resume():JSX.Element {
   return (
     <Grid>
       <Navbar dark={false}/>
-      <iframe src={ResumePdf} width="100%" style={{ height: "100vh" }} title="RobToldMeToChangeIt"/>
+      <embed src={ResumePdf} width="100%" style={{ height: "100vh" }}/>
     </Grid>
   )
 }

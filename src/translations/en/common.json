@@ -49,6 +49,9 @@
   },
   "Projects": {
     "subtitle": "A collection of programming work I've done. Enjoy!",
-    "title": "These Are My Projects!"
+    "title": "These Are My Projects!",
+    "SingleProject": {
+      "code": "Code"
+    }
   }
 }

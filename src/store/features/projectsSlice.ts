@@ -3,7 +3,7 @@ import { projects } from "../../utils/ProjectsInfo"
 
 
 const initialState = {
-  projects: projects
+  items: [...projects]
 }
 
 export const projectSlice = createSlice({
@@ -12,7 +12,7 @@ export const projectSlice = createSlice({
   reducers: {}
 })
 
-export const getProjects = (state: any) => state.projects
+export const getProjects = (state: any) => state.projects.items
 
 
 export default projectSlice.reducer

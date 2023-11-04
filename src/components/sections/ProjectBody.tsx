@@ -24,6 +24,7 @@ export default function ProjectBody(
   const profile = useSelector(getProfile)
   const projects = useSelector(getProjects)
   const {i18n, t} = useTranslation("common")
+  const project = projects.find((p: any) => p.title === projectTitle)
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -32,7 +33,6 @@ export default function ProjectBody(
     }
   }, [i18n, profile.language])
 
-  
   return (
     <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 10 }}>
@@ -50,29 +50,32 @@ export default function ProjectBody(
             </Grow>
           </Grid>
 
-          <Fade in={true} timeout={1000}>
-            <Grid 
-              item 
-              container 
-              xs={12} 
-              md={5} 
-              paddingLeft={isMobile ? 0 : 5} 
-              paddingTop={isMobile ? 5 : 0}
-              justifyContent={isMobile ? "center" : "flex-start"}
-            >
-              <Typography variant="h3" style={{fontWeight: 700, color: lightGray}}>
-                {t("Projects.SingleProject.myRole")}
-              </Typography>
-  
-              <Typography 
-                variant="h6" 
-                style={{fontWeight: 500, color: lightGray}}
+          { project 
+            ? <Fade in={true} timeout={1000}>
+              <Grid 
+                item 
+                container 
+                xs={12} 
+                md={5} 
+                paddingLeft={isMobile ? 0 : 5} 
                 paddingTop={isMobile ? 5 : 0}
+                justifyContent={isMobile ? "center" : "flex-start"}
               >
-                {myRole}
-              </Typography>
-            </Grid>
-          </Fade>
+                <Typography variant="h3" style={{fontWeight: 700, color: lightGray}}>
+                  {t("Projects.SingleProject.myRole")}
+                </Typography>
+    
+                <Typography 
+                  variant="h6" 
+                  style={{fontWeight: 500, color: lightGray}}
+                  paddingTop={isMobile ? 5 : 0}
+                >
+                  {t(`Projects.SingleProject.${project.params}`)}
+                </Typography>
+              </Grid>
+            </Fade>
+            : <></>
+          }
 
           { photoArrayList.length > 2
             ? <ImageList variant="masonry" cols={3} gap={8}>

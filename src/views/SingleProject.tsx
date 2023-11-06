@@ -1,11 +1,13 @@
 import { useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {useLocation, useNavigate} from 'react-router-dom'
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import ProjectBody from '../components/sections/ProjectBody'
 import ProjectNameSlogan from '../components/sections/ProjectNameSlogan'
+import { getProjects } from '../store/features/projectsSlice'
 import { honeyDew, lightBlack } from "../theme"
 
 export default function SingleProject():JSX.Element {
@@ -14,6 +16,8 @@ export default function SingleProject():JSX.Element {
   const photoArrayList:string[] = []
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+  const projects = useSelector(getProjects)
+  const project = projects.find((p: any) => p.title === location.state.title)
 
   if(location.state.image2) photoArrayList.push(location.state.image2)
   if(location.state.image3) photoArrayList.push(location.state.image3)
@@ -30,7 +34,7 @@ export default function SingleProject():JSX.Element {
     }
   }, [location.state, navigate])
 
-  return location.state ? (
+  return location.state && project ? (
     <>
       <div
         style={{
@@ -41,7 +45,7 @@ export default function SingleProject():JSX.Element {
         <Navbar dark={true} />
         <ProjectNameSlogan 
           projectTitle={location.state.title} 
-          projectDescription={location.state.description}
+          projectParams={project.params}
           githubLink={location.state.code}
           demoLink={location.state.demo ?? null}
           isMobile={isMobile}
@@ -49,9 +53,9 @@ export default function SingleProject():JSX.Element {
         <ProjectBody
           projectImage={location.state.image}
           projectTitle={location.state.title}
-          myRole={location.state.myRole ?? ""}
           photoArrayList={photoArrayList}
           isMobile={isMobile}
+          projectParams={project.params}
         />
       </div>
       <div

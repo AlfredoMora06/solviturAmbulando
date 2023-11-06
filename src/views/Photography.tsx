@@ -58,7 +58,7 @@ export default function Photography():JSX.Element {
               </Grid>
             </Grid>
 
-            <PhotoTabs />
+            <PhotoTabs t={t}/>
           </Box>
         </Container>
       </div>

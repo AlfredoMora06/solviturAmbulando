@@ -13,19 +13,17 @@ import { getProfile } from "../../store/features/profileSlice"
 
 type ProjectNameSloganProps = {
   projectTitle: string,
-  projectDescription: string,
+  projectParams: string,
   githubLink: string,
   demoLink: string | null,
   isMobile: boolean,
 }
 
 export default function ProjectNameSlogan(
-  {projectTitle, projectDescription, githubLink, demoLink, isMobile}: ProjectNameSloganProps
+  {projectTitle, projectParams, githubLink, demoLink, isMobile}: ProjectNameSloganProps
 ):JSX.Element {
-
-  const profile = useSelector(getProfile)
-
   const {i18n, t} = useTranslation("common")
+  const profile = useSelector(getProfile)
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -80,7 +78,7 @@ export default function ProjectNameSlogan(
           <Fade in={true} timeout={1000}>
             <Grid item xs={12} container>
               <Typography fontSize={22} style={{color: lightGray}} paddingTop={isMobile ? 0 : 5}>
-                {projectDescription}
+                {t(`Projects.SingleProject.${projectParams}Desc`)}
               </Typography>
             </Grid>
           </Fade>

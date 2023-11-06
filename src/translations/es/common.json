@@ -45,7 +45,12 @@
   },
   "Photography": {
     "subtitle": "Recuerdos congelados con el tiempo, algunos cuentan historias, otros solo me gustan...",
-    "title": "Fotografía"
+    "title": "Fotografía",
+    "PhotoTabs": {
+      "all": "Todo",
+      "film": "Filmográfica",
+      "portraits": "Retratos"
+    }
   },
   "Projects": {
     "subtitle": "Una colección de trabajos de programación que he realizado. ¡Disfruta!",
@@ -55,11 +60,17 @@
       "demo": "Demostración",
       "myRole": "Mi Papel",
       "earworm": "Dirigí el diseño y desarrollo del interfaz de usuario utilizando Figma, React.js así como Recharts y Tailwind para mostrar datos e información de una manera fluida y agradable. También ayudé a extraer de la web la información que se ve en la cartelera Top 200 desde 1970, con Python.",
+      "earwormDesc": "Una herramienta de exploración y visualización de música basada en las listas de fin de año de Billboard de 1970 a 2020. Proporciona una descripción general de los álbumes de cada año en las listas, así como visualización de datos para ofrecer información sobre la forma en que se desarrollan las tendencias musicales a lo largo del tiempo.",
       "cuny-hub": "Desarrollé una aplicación web con un grupo de 3 para un proyecto de investigación que proporciona información relacionada con CUNY a estudiantes entrantes o inscritos en CUNY que incluye: datos curiosos, información de contacto, mapa del campus mediante folleto, gastos escolares, cursos disponibles, especializaciones, programas, títulos, etc. Liderar el desarrollo del frontend utilizando R Shiny con un backend MySQL. Implementé MySQL para consultar los datos normalizados y encontrar información relevante para mostrar y comparar.",
+      "cuny-hubDesc": "Un centro de información y relaciones entre las escuelas CUNY. Al asistir a las escuelas secundarias de la ciudad de Nueva York, notamos que no hay ningún lugar donde podamos encontrar información sobre las escuelas CUNY en un solo lugar. Es difícil encontrar lo que buscas si no sabes dónde buscar.",
       "recipe-finder": "Implementé una aplicación web con un equipo de cuatro personas que permite a los usuarios buscar recetas en función de los ingredientes que tienen a su disposición. Liderar el diseño y desarrollo de la interfaz de usuario utilizando HTML, CSS y JavaScript para adaptarse a la navegabilidad y las búsquedas de recetas del usuario.",
+      "recipe-finderDesc": "¿No sabes qué cocinar? ¡RecetaFinder lo encuentra por ti! Recipe Finder te permite buscar recetas en función de los ingredientes que tienes a tu disposición. Al registrarse con nosotros, puede guardar las recetas que le gusten para consultarlas en el futuro y también solicitar recetas en nuestra tienda de recetas.",
       "cuny-yak": "Implementé una sala de chat basada en redes sociales con un equipo de tres para usuarios dentro de la ciudad de Nueva York, así como para estudiantes universitarios en las universidades de CUNY. Los estudiantes pueden usar salas de chat en cualquier lugar, pero la página de inicio es para aquellos en Nueva York para charlas basadas en geolocalización. Creé y formé una base de datos usando Firebase para almacenar información de inicio de sesión de usuarios y publicaciones en salas de chat. Implementé el diseño de la aplicación web para acomodar las necesidades de uso de PC usando HTML, CSS y Javascript.",
+      "cuny-yakDesc": "Para personas que necesitan alguien con quien hablar en un radio local. Una aplicación basada en redes sociales para satisfacer el tema de ayudar con la transición del trabajo al hogar. La aplicación hace que el usuario publique pensamientos como una publicación de discusión.",
       "green-print": "El proyecto se creó como una presentación para el Hackathon de Lehman College con un grupo de tres. Estuve a cargo de analizar, agregar y gestionar un conjunto de datos de 16.000 líneas con Python y pandas. Diseñó un algoritmo que detectaba la cantidad de CO2 emitida por un vehículo específico.",
-      "creativo": "Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150. Es un sitio que muestra tareas creativas que involucran desde la creación de carteles utilizando metodologías artísticas comunes hasta imágenes de photoshop. Creé un pequeño juego HTML que espero mostrar aquí en breve."
+      "green-printDesc": "¿Cuál es tu huella verde en el mundo? Una aplicación web en construcción creada con Flask que rastrea las emisiones de carbono individuales (niveles de CO2) de productos para el hogar y vehículos, y devuelve su huella de carbono.",
+      "creativo": "Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150. Es un sitio que muestra tareas creativas que involucran desde la creación de carteles utilizando metodologías artísticas comunes hasta imágenes de photoshop. Creé un pequeño juego HTML que espero mostrar aquí en breve.",
+      "creativoDesc": "Un sitio web que muestra fotos de Nueva York y un blog de respuestas a artículos de los medios sobre nuestra vida actual. Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150."
     }
   }
 }

@@ -198,11 +198,13 @@ export default function Navbar (
               open={Boolean(anchorElNavLan)}
               onClose={handleCloseNavMenuLan}
             >
-              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("en")}}>  
-                <Typography textAlign="center">English</Typography>
+              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("en")}} sx={{minWidth: 80}}>  
+                <img alt="United States" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg" style={{maxWidth: 20}}/>
+                <Typography textAlign="center" paddingLeft={1}>En</Typography>
               </MenuItem>
-              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("es")}}>  
-                <Typography textAlign="center">Spanish</Typography>
+              <MenuItem onClick={() => {handleCloseNavMenuLanRefresh("es")}} sx={{minWidth: 80}}>
+                <img alt="Mexico" src="http://purecatamphetamine.github.io/country-flag-icons/3x2/MX.svg" style={{maxWidth: 20}}/>  
+                <Typography textAlign="center" paddingLeft={1}>Es</Typography>
               </MenuItem>
             </Menu>
           </Box> : <></>

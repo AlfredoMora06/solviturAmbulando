@@ -45,11 +45,15 @@ function a11yProps(index: number) {
   };
 }
 
+type PhotoTabsProps = {
+  t: (s: string) => string
+}
 
-export default function PhotoTabs(): JSX.Element {
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+export default function PhotoTabs({t}: PhotoTabsProps): JSX.Element {
+  const [value, setValue] = React.useState(0)
+
+  const handleChange = (_: any, newValue: number) => {
     setValue(newValue)
   }
 
@@ -67,9 +71,9 @@ export default function PhotoTabs(): JSX.Element {
           aria-label="basic tabs example"
           indicatorColor="secondary"
         >
-          <Tab label="All" {...a11yProps(0)} style={{color: lightGray}}/>
-          <Tab label="Film" {...a11yProps(1)} style={{color: lightGray}}/>
-          <Tab label="Portraits" {...a11yProps(2)} style={{color: lightGray}}/>
+          <Tab label={t("Photography.PhotoTabs.all")} {...a11yProps(0)} style={{color: lightGray}}/>
+          <Tab label={t("Photography.PhotoTabs.film")} {...a11yProps(1)} style={{color: lightGray}}/>
+          <Tab label={t("Photography.PhotoTabs.portraits")} {...a11yProps(2)} style={{color: lightGray}}/>
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>

@@ -1,5 +1,5 @@
 import React from "react"
-import { CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
+import { Button, CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material"
 import Card from "@mui/material/Card"
 import WorkIcon from "@mui/icons-material/Work"
 import SchoolIcon from '@mui/icons-material/School'
@@ -8,10 +8,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { honeyDew, lightBlack, lightGray } from "../theme"
+import { darkOrange, honeyDew, lightBlack, lightGray } from "../theme"
 import WorkItemMobile from "./WorkItemMobile"
 import { EducationExperiences, VolunteerExperiences, WorkExperiences } from "../utils/WorkInfo"
 import { getProfile } from "../store/features/profileSlice"
+//@ts-ignore
+import ResumePdf from "../assets/Alfredo_Morales_Resume.pdf"
 
 
 const imageStyle = {
@@ -47,22 +49,38 @@ export default function WorkCard():JSX.Element {
       }}>
       <CardContent>
         <Grid container>
-          <Grid item container xs={12} paddingTop={2}>
-            <Grid item container xs={6}>
+          <Grid item container xs={12} paddingTop={1.5}>
+            <Grid item container xs={6} alignContent={"center"}>
               <WorkIcon sx={{ color: lightGray, paddingRight: 3 }} />
               <Typography color={lightGray}>{t("About.WorkCard.workTitle")}</Typography>
             </Grid>
-            <Grid item container xs={6} justifyContent="flex-end">
-              <LinkedInIcon
-                fontSize="medium"
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/alfredogmorales/",
-                    "_blank"
-                  )
-                }
-                sx={{ color: "white", cursor: "pointer" }}
-              />
+            <Grid item container xs={6} justifyContent="flex-end" alignContent={"center"}>
+              <Grid item paddingRight={2}>
+                <Button
+                  onClick={() => {
+                    window.open(
+                      ResumePdf,
+                      "_blank"
+                    )
+                  }} 
+                  sx={{ color: "white", cursor: "pointer", paddingTop: 0.8, "&:hover": {color: darkOrange}}}
+                  size="small"
+                >
+                  <Typography textAlign="center" fontSize={15}>{t("Navbar.resume")}</Typography>
+                </Button>
+              </Grid>
+              <Grid item container xs={1} alignContent="center">
+                <LinkedInIcon
+                  fontSize="medium"
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/alfredogmorales/",
+                      "_blank"
+                    )
+                  }
+                  sx={{ color: "white", cursor: "pointer", "&:hover": {color: darkOrange} }}
+                />
+              </Grid>
             </Grid>
           </Grid>
           {WorkExperiences(t).map((work) => {

@@ -14,10 +14,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 
 import { lightBlack, lightGray } from "../theme"
-import { useMediaQuery, useTheme } from "@mui/material"
-//@ts-ignore
-import ResumePdf from "../assets/Alfredo_Morales_Resume.pdf"
 import { getProfile, updateLanguage } from "../store/features/profileSlice"
+
 
 type NavbarProps = {
   dark: boolean
@@ -26,8 +24,6 @@ type NavbarProps = {
 export default function Navbar (
   { dark }: NavbarProps
 ): JSX.Element {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const profile = useSelector(getProfile)
   const {i18n, t} = useTranslation("common")
   const [anchorElNav, setAnchorElNav] = React.useState(null)
@@ -35,7 +31,6 @@ export default function Navbar (
 
   const pages = [
     { title: t("Navbar.about"), link: "../0/about" },
-    { title: t("Navbar.resume"), link: "../0/resume" },
     { title: t("Navbar.projects"), link: "../0/projects" },
     { title: t("Navbar.photography"), link: "../0/photography"},
   ]
@@ -43,7 +38,6 @@ export default function Navbar (
   const pagesMobile = [
     { title: t("Navbar.home"), link: "../0/home"},
     { title: t("Navbar.about"), link: "../0/about" },
-    { title: t("Navbar.resume"), link: "../0/resume" },
     { title: t("Navbar.projects"), link: "../0/projects" },
     { title: t("Navbar.photography"), link: "../0/photography"},
   ]
@@ -137,16 +131,11 @@ export default function Navbar (
               sx={{ display: { xs: "block", md: "none" }}}
             >
               { pagesMobile.map((page, index) => {
-                return isMobile && page.link === "../0/resume"
-                  ? <MenuItem key={index}>  
-                    <a href={ResumePdf} target='_blank' style={{textDecoration: "none", color: "inherit"}} rel="noreferrer">
-                      <Typography textAlign="center">{page.title}</Typography>
-                    </a>
-                  </MenuItem>
-                  : <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>  
+                return (
+                  <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>  
                     <Typography textAlign="center">{page.title}</Typography>
                   </MenuItem>
-                }
+                )}
               )}
             </Menu>
           </Box>

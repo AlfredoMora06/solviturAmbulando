@@ -32,8 +32,25 @@
     "social": "Social"
   },
   "Home": {
+    "clickMe": "Click Me!",
     "firstParagraph": "¡Hola mi gente! I'm Alfredo, a fullstack software engineer who likes frontend and working with product teams. I am passionate about creating tools, learning new technologies, and being able to take ideas from one area of ​​knowledge to extrapolate them and apply them in another.",
-    "secondParagraph": "I specialize on building blazing fast web applications with React, Redux, NodeJS and Express.Js contributing across the stack with a frontend focus."
+    "secondParagraph": "I specialize on building blazing fast web applications with React, Redux, NodeJS and Express.Js contributing across the stack with a frontend focus.",
+    "ContactMeForm": {
+      "cancel": "Cancel",
+      "fromName": "Your Name *",
+      "fromNameRequired": "Name Required",
+      "message": "Message *",
+      "messageRequired": "Message Required",
+      "phone": "Phone Number (Optional)",
+      "replyTo": "Email *",
+      "replyToRequired": "Email Required",
+      "subject": "Subject *",
+      "subjectRequired": "Subject Required",
+      "submit": "Send Email",
+      "title": "Shoot me a message! Let's Connect!",
+      "sendFail": "There was an error, please try again later.", 
+      "sendSuccess": "Email sent successfully."
+    }
   },
   "Navbar": {
     "about": "About Me",

@@ -32,8 +32,25 @@
     "social": "Redes"
   },
   "Home": {
+    "clickMe": "¡Presiona sobre mí!",
     "firstParagraph": "¡Hola mi gente! Yo soy Alfredo, un ingeniero de software fullstack al que le gusta el frontend y trabajar con equipos de producto. Me apasiona crear herramientas, aprender nuevas tecnologías y poder tomar ideas de un área del conocimiento para extrapolarlas y aplicarlas en otra.",
-    "secondParagraph": "Me especializo en crear aplicaciones web ultrarrápidas con React, Redux, NodeJS y Express.Js contribuyendo en todo el conjunto con un enfoque frontend."
+    "secondParagraph": "Me especializo en crear aplicaciones web ultrarrápidas con React, Redux, NodeJS y Express.Js contribuyendo en todo el conjunto con un enfoque frontend.",
+    "ContactMeForm": {
+      "cancel": "Cancelar",
+      "fromName": "Su Nombre *",
+      "fromNameRequired": "Nombre Requerido",
+      "message": "Mensaje *",
+      "messageRequired": "Mensaje Requerido",
+      "phone": "Numero de Teléfono (Opcional)",
+      "replyTo": "Correo Electrónico *",
+      "replyToRequired": "Correo Electrónico Requerido",
+      "subject": "Sujeto *",
+      "subjectRequired": "Sujeto Requerido",
+      "submit": "Enviar Correo",
+      "title": "¡Envíeme un mensaje! ¡Conectémonos!",
+      "sendFail": "Se produjo un error, inténtelo nuevamente más tarde.",
+      "sendSuccess": "Correo electrónico enviado exitosamente."
+    }  
   },
   "Navbar": {
     "about": "Sobre Mi",

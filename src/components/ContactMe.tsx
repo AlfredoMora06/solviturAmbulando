@@ -52,7 +52,7 @@ export default function ContactMe():JSX.Element {
     setShowTooltip(!showTooltip)
   }
 
-  setInterval(handleOpenClose, 5000)
+  setInterval(handleOpenClose, 3000)
 
   React.useEffect(() => {
     // switch to profile preferred language

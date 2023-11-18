@@ -16,11 +16,11 @@
       "softwareEngineerII": "Ingeniero de Software II",
       "softwareEngineerIntern": "Ingeniero de Software Pasante",
       "Dates": {
-        "tracflo3": "Sept 2023 - Actualidad",
+        "tracflo3": "Sep 2023 - Actualidad",
         "tracflo2": "Ene 2022 - Aug 2023",
         "tracflo1": "Jun 2021 - Dic 2021",
-        "cunyK": "Sept 2019 - Jun 2021",
-        "inTheLab": "Sept 2023 - Actualidad",
+        "cunyK": "Sep 2019 - Jun 2021",
+        "inTheLab": "Sep 2023 - Actualidad",
         "ctp": "Aug 2020 - Mayo 2021",
         "hunter": "Aug 2017 - Mayo 2021",
         "teals": "Mayo 2019 - Jun 2021"
@@ -50,6 +50,11 @@
       "title": "¡Envíeme un mensaje! ¡Conectémonos!",
       "sendFail": "Se produjo un error, inténtelo nuevamente más tarde.",
       "sendSuccess": "Correo electrónico enviado exitosamente."
+    },
+    "ThankYou": {
+      "title": "",
+      "firstSentence": "¡Gracias por comunicarte conmigo!",
+      "secondSentence": "¡Me pondré en contacto con usted en breve!"
     }  
   },
   "Navbar": {

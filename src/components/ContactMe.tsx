@@ -1,22 +1,26 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
 import { styled } from '@mui/material/styles'
 import { makeStyles } from "@mui/styles"
-
+import emailjs from '@emailjs/browser'
+import { useSnackbar } from 'notistack'
+import { Fade } from "@mui/material"
 
 import { darkOrange, lightGray } from "../theme"
 import { getProfile } from "../store/features/profileSlice"
 import ContactMeForm from "./ContactMeForm"
 //@ts-ignore
 import Dialog from "./Dialog"
+import ThankYou from "./ThankYou"
+
 
 const useStyles = makeStyles(() => ({
   img: {
     "&:hover": {
       cursor: "pointer",
-      opacity: 0.60
+      opacity: 0.50
     }
   },
 }))
@@ -31,12 +35,24 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }))
 
-
 export default function ContactMe():JSX.Element {
   const classes = useStyles()
   const profile = useSelector(getProfile)
   const [dialog, setDialog] = useState<boolean>(false)
+  const [thankYou, setThankYou] = useState<boolean>(false)
   const {i18n, t} = useTranslation("common")
+  const {enqueueSnackbar} = useSnackbar()
+  const [showTooltip, setShowTooltip] = React.useState(false)
+
+  const showTooltipBasedOnEverything = useMemo(() => {
+    return dialog ? false : showTooltip
+  }, [dialog, showTooltip])
+
+  const handleOpenClose = () => {
+    setShowTooltip(!showTooltip)
+  }
+
+  setInterval(handleOpenClose, 5000)
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -46,14 +62,30 @@ export default function ContactMe():JSX.Element {
   }, [i18n, profile.language])
 
 
+  const sendEmail = async (values: any, tName: string): Promise<void> => {
+    await emailjs.send(
+      `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`, 
+      `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`, 
+      values, 
+      `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}`
+    )
+    .then((result) => {
+      if(result.status === 200){
+        enqueueSnackbar(t(`${tName}.sendSuccess`), {variant: "success"})
+        setThankYou(true)
+      } else {
+        enqueueSnackbar(t(`${tName}.sendFail`), {variant: "error"})
+      }
+    }, () => {
+      enqueueSnackbar(t(`${tName}.sendFail`), {variant: "error"})
+    })
+  }
+
   return (
     <>
-      <LightTooltip placement='top' title={t("Home.clickMe")}>
+      <LightTooltip placement='top' title={t("Home.clickMe")} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} open={showTooltipBasedOnEverything}>
         <div className="image-block-wrapper" data-animation-role="image">
-          <div
-            className="sqs-image-shape-container-elementhas-aspect-ratio"
-            style={{ position: "relative", paddingBottom: "94.20289611816406%", overflow: "hidden" }}
-          >
+          <div style={{ position: "relative", paddingBottom: "94.20289611816406%", overflow: "hidden" }}>
             <noscript>
               <img src="https://images.squarespace-cdn.com/content/v1/60133069ccdf254ecbbd6f57/1612066701942-JDFXGEJ8GSR9PRBHPNZD/newsletter.gif" alt="newsletter.gif" />
             </noscript>
@@ -62,20 +94,8 @@ export default function ContactMe():JSX.Element {
               className={classes.img}
               data-src="https://images.squarespace-cdn.com/content/v1/60133069ccdf254ecbbd6f57/1612066701942-JDFXGEJ8GSR9PRBHPNZD/newsletter.gif"
               data-image="https://images.squarespace-cdn.com/content/v1/60133069ccdf254ecbbd6f57/1612066701942-JDFXGEJ8GSR9PRBHPNZD/newsletter.gif"
-              data-image-dimensions="1080x1080"
-              data-image-focal-point="0.5,0.5"
-              data-load="false"
-              data-image-id="60162f8ca094b02e33904cd5"
-              data-type="image"
-              style={{
-                left: "0%",
-                top: "-3.07692%",
-                width: "100%",
-                height: "106.154%",
-                position: "absolute",
-              }}
+              style={{ top: "-3.07692%", width: "100%", position: "absolute" }}
               alt="newsletter.gif"
-              data-image-resolution="300w"
               src="https://images.squarespace-cdn.com/content/v1/60133069ccdf254ecbbd6f57/1612066701942-JDFXGEJ8GSR9PRBHPNZD/newsletter.gif?format=300w"
             />
           </div>
@@ -84,12 +104,18 @@ export default function ContactMe():JSX.Element {
       <Dialog
         open={dialog}
         onClose={() => setDialog(false)}
-        title={t(`Home.ContactMeForm.title`)}
-        maxWidth={'md'}
+        title={thankYou ? t(`Home.ThankYou.title`) : t(`Home.ContactMeForm.title`)}
+        maxWidth={thankYou ? 'xs' : 'md'}
       >
-        <ContactMeForm 
-          onClose={() => setDialog(false)}
-        />
+        { thankYou
+          ? <>
+            <ThankYou />
+          </>
+          : <ContactMeForm 
+            onClose={() => setDialog(false)}
+            sendEmail={sendEmail}
+          />
+        }
       </Dialog>
     </>
   )

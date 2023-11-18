@@ -1,10 +1,7 @@
-import React from "react"
 import { useTranslation } from "react-i18next"
 import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import Grid from "@mui/material/Grid"
-import emailjs from '@emailjs/browser'
-import { useSnackbar } from 'notistack'
 
 // @ts-ignore
 import TextField from "./TextField"
@@ -14,15 +11,15 @@ import TextAreaField from "./TextArea"
 
 interface CreateEditMaterialProps {
   onClose: () => void, 
+  sendEmail: (values: any, tName: string) => Promise<void>
 }
 
 const tName = "Home.ContactMeForm"
 
 export default function ContactMeForm(
-  {onClose}: CreateEditMaterialProps
+  {onClose, sendEmail}: CreateEditMaterialProps
 ) {
   const {t} = useTranslation("common")
-  const {enqueueSnackbar} = useSnackbar()
 
   return (
     <Formik
@@ -43,23 +40,8 @@ export default function ContactMeForm(
       })}
       onSubmit={async (values, { resetForm, setSubmitting }) => {
         setSubmitting(true)
-        await emailjs.send(
-          `${process.env.REACT_APP_EMAIL_JS_SERVICE_ID}`, 
-          `${process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID}`, 
-          values, 
-          `${process.env.REACT_APP_EMAIL_JS_PUBLIC_KEY}`
-        )
-        .then((result) => {
-          if(result.status === 200){
-            enqueueSnackbar(t(`${tName}.sendSuccess`), {variant: "success"})
-          } else {
-            enqueueSnackbar(t(`${tName}.sendFail`), {variant: "error"})
-          }
-        }, () => {
-          enqueueSnackbar(t(`${tName}.sendFail`), {variant: "error"})
-        })
+        await sendEmail(values, tName)
         resetForm()
-        onClose()
         setSubmitting(false)
       }}
     >

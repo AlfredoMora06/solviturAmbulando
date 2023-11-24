@@ -28,7 +28,7 @@ export default function Photography():JSX.Element {
       <div
         style={{
           backgroundColor: lightBlack,
-          paddingBottom: 70,
+          paddingBottom: isMobile ? 0 : 70,
           minHeight: "100vh",
         }}
       >

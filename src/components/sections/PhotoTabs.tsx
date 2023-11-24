@@ -7,6 +7,7 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+
 import PhotoGrid from "../PhotoGrid"
 import { photoArray } from "../../utils/PhotoArray"
 import { Photo, PhotoType } from "../../types/Photo"
@@ -42,13 +43,12 @@ function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-  };
+  }
 }
 
 type PhotoTabsProps = {
   t: (s: string) => string
 }
-
 
 export default function PhotoTabs({t}: PhotoTabsProps): JSX.Element {
   const [value, setValue] = React.useState(0)

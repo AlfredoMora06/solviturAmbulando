@@ -35,7 +35,7 @@ export default function ContactMeForm(
       validationSchema={Yup.object().shape({
         from_name: Yup.string().required(t(`${tName}.fromNameRequired`)),
         subject: Yup.string().required(t(`${tName}.subjectRequired`)),
-        reply_to: Yup.string().required(t(`${tName}.replyToRequired`)),
+        reply_to: Yup.string().email(t(`${tName}.invalidEmail`)).required(t(`${tName}.replyToRequired`)),
         message: Yup.string().required(t(`${tName}.messageRequired`)),
       })}
       onSubmit={async (values, { resetForm, setSubmitting }) => {

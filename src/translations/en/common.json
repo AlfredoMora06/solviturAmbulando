@@ -39,6 +39,7 @@
       "cancel": "Cancel",
       "fromName": "Your Name *",
       "fromNameRequired": "Name Required",
+      "invalidEmail": "Invalid Email",
       "message": "Message *",
       "messageRequired": "Message Required",
       "phone": "Phone Number (Optional)",

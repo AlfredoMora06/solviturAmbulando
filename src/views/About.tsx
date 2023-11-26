@@ -76,7 +76,7 @@ export default function About():JSX.Element {
               <Grid item xs={1}></Grid>
             </Grid>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6} container alignItems="flex-start">
+              <Grid item xs={12} md={6} container alignItems="flex-start" paddingBottom={isMobile ? 5 : 0}>
                 <Grid item xs={12}>
                   <Typography variant="h6" sx={{ color: lightGray }}>
                     {t("About.firstParagraph")}

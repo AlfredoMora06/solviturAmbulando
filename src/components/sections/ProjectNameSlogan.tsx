@@ -38,7 +38,7 @@ export default function ProjectNameSlogan(
         <Grid container spacing={2}>
           <Fade in={true} timeout={1000}>
             <Grid item xs={12} container>
-              <Grid item container xs={12} md={6} justifyContent={isMobile ? "center" : "flex-start"}>
+              <Grid item container xs={12} md={6} justifyContent={isMobile ? "center" : "flex-start"} paddingBottom={isMobile ? 2 : 0}>
                 <Typography 
                   variant="h1" 
                   style={{ 

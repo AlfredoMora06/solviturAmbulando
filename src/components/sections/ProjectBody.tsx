@@ -4,6 +4,11 @@ import { Container, Fade, Grow, ImageList, ImageListItem, Typography } from "@mu
 import Grid from "@mui/material/Grid"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 import { lightGray } from "../../theme"
 import { getProfile } from "../../store/features/profileSlice"
@@ -22,6 +27,24 @@ export default function ProjectBody(
 ):JSX.Element {
   const profile = useSelector(getProfile)
   const {i18n, t} = useTranslation("common")
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const projectImageCloud = cld.image(projectImage)
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+  const array0ProjectImage = photoArrayList[0] 
+    ? cld.image(photoArrayList[0])
+      .delivery(quality(qualityAuto()))
+      .delivery(format(auto()))
+      .toURL()
+    : ""
+  const array1ProjectImage = photoArrayList[1] 
+  ? cld.image(photoArrayList[0])
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+  : ""
+
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -38,7 +61,7 @@ export default function ProjectBody(
             <Grow in={true} timeout={1000}>
               <img
                 loading="lazy" 
-                src={projectImage}
+                src={projectImageCloud}
                 alt={projectTitle}
                 style={{
                   width: "100%"
@@ -75,11 +98,15 @@ export default function ProjectBody(
           { photoArrayList.length > 2
             ? <ImageList variant="masonry" cols={3} gap={8}>
               {photoArrayList.map((photo) => {
+                const cloudImage = cld.image(photo)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
                 return (
                   <Fade in={true} timeout={800}>
                     <ImageListItem key={photo}>
                       <img
-                        src={`${photo}?w=161&fit=crop&auto=format`}
+                        src={cloudImage}
                         alt={"missing"}
                         loading="lazy"
                       />
@@ -97,7 +124,7 @@ export default function ProjectBody(
               <Grow in={true} timeout={1000}>
                 <img 
                   loading="lazy"
-                  src={photoArrayList[0]}
+                  src={array0ProjectImage}
                   alt={projectTitle}
                   style={{ width: "98%" }}
                 />
@@ -111,7 +138,7 @@ export default function ProjectBody(
               <Grow in={true} timeout={1000}>
                 <img 
                   loading="lazy"
-                  src={photoArrayList[1]}
+                  src={array1ProjectImage}
                   alt={projectTitle}
                   style={{ width: "100%" }}
                 />

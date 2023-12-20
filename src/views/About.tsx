@@ -5,11 +5,14 @@ import Grid from "@mui/material/Grid"
 import Fade from '@mui/material/Fade'
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 import Navbar from "../components/Navbar"
 import { honeyDew, lightBlack, lightGray } from "../theme"
-//@ts-ignore
-import ChildhoodPic from "../assets/ChildhoodPic.jpg"
 import WorkCard from "../components/WorkCard"
 import Footer from "../components/sections/Footer"
 import { getProfile } from "../store/features/profileSlice"
@@ -20,6 +23,11 @@ export default function About():JSX.Element {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const profile = useSelector(getProfile)
   const {i18n, t} = useTranslation("common")
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const ChildhoodPic = cld.image('fredo_mora/mbj2jwmon5x19yjyiaf7')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
 
 
   React.useEffect(() => {

@@ -7,13 +7,18 @@ import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 //@ts-ignore
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import { honeyDew, lightBlack, lightGray } from "../theme"
-import { projects } from "../utils/ProjectsInfo"
 import { getProfile } from "../store/features/profileSlice"
+import { ProjectInfo } from "../utils/ProjectsInfo"
 
 
 const useStyles = makeStyles<Theme>((theme) => ({
@@ -48,6 +53,8 @@ export default function Projects():JSX.Element {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const profile = useSelector(getProfile)
   const {i18n, t} = useTranslation("common")
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -94,8 +101,14 @@ export default function Projects():JSX.Element {
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
-              {projects.map((project) => {
+              {ProjectInfo().map((project) => {
                 const {image, params, title} = project
+
+                const cdnImagePath = cld.image(image)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+
                 return (
                   <Fade in={true} timeout={1800} key={title}>
                     <Grid
@@ -114,7 +127,7 @@ export default function Projects():JSX.Element {
                           window.scrollTo(0, 0)
                         }}
                       >
-                        <img loading="lazy" src={image} width="100%" alt="folder" height="100%" style={{transition: "transform .2s"}}/>
+                        <img loading="lazy" src={cdnImagePath} width="100%" alt="folder" height="100%" style={{transition: "transform .2s"}}/>
                         <div className={classes.middle}>
                           <Typography variant="h5" style={{color: lightGray, fontWeight: 700}}>
                             {title}

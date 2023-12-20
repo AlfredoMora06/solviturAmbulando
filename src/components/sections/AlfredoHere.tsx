@@ -4,15 +4,12 @@ import { Fade, Slide, Typography, Container, useMediaQuery, useTheme } from "@mu
 import Grid from "@mui/material/Grid"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
-//@ts-ignore
-import SunsetTezo from "../../assets/SunsetTezo.jpg"
-//@ts-ignore
-import Abril from "../../assets/Abril.jpg"
-//@ts-ignore
-import SelfBrick from "../../assets/SelfBrick.jpg"
-//@ts-ignore
-import BaliPose from "../../assets/BaliPose.jpg"
 import { lightBlack } from "../../theme"
 import { getProfile } from "../../store/features/profileSlice"
 import ContactMe from "../ContactMe"
@@ -30,6 +27,7 @@ export default function AlfredoHere():JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const profile = useSelector(getProfile)
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
 
   const {i18n, t} = useTranslation("common")
 
@@ -39,6 +37,23 @@ export default function AlfredoHere():JSX.Element {
       i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
     }
   }, [i18n, profile.language])
+
+  const SunsetTezo = cld.image('fredo_mora/if2b7bxyesgscqfninta')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+  const Abril = cld.image('fredo_mora/ciwlml5d8aqltqtxhdno')
+    .quality(qualityAuto())
+    .delivery(format(auto()))
+    .toURL()
+  const SelfBrick = cld.image('fredo_mora/bnkp44sgd0ylosfsn9sc')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+  const BaliPose = cld.image('fredo_mora/ctonn8ujhudssrwkz1so')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
 
 
   return (

@@ -1,84 +1,54 @@
-//@ts-ignore
-import RecipeFinder from "../assets/Recipe_Finder.png"
-//@ts-ignore
-import CunyHub from "../assets/CUNY_HUB.png"
-//@ts-ignore
-import CunyHubTwo from "../assets/CunyHubTwo.png"
-//@ts-ignore
-import CunyHubThree from "../assets/CunyHubThree.png"
-//@ts-ignore
-import CunyYak from "../assets/cuny_yak.jpg"
-//@ts-ignore
-import creativo from "../assets/creativo.png"
-//@ts-ignore
-import CreativoTwo from "../assets/CreativoTwo.png"
-//@ts-ignore
-import CreativoThree from "../assets/CreativoThree.png"
-//@ts-ignore
-import CreativoFour from "../assets/CreativoFour.png"
-//@ts-ignore
-import CreativoFive from "../assets/CreativoFive.png"
-//@ts-ignore
-import CreativoSix from "../assets/CreativoSix.jpg"
-//@ts-ignore
-import CreativoSeven from "../assets/CreativoSeven.jpg"
-//@ts-ignore
-import GreenPrint from "../assets/python.png"
-//@ts-ignore
-import Earworm from "../assets/Earworm.png"
-//@ts-ignore
-import EarwormTwo from "../assets/EarwormTwo.png"
-//@ts-ignore
-import EarwormThree from "../assets/EarwormThree.png"
 
-export const projects = [
-  {
-    title: "Earworm",
-    params: "earworm",
-    image: Earworm,
-    image2: EarwormTwo,
-    image3: EarwormThree,
-    code: "https://github.com/AlfredoMora06/earworm_",
-    demo: "https://earwrm.io/",
+export const ProjectInfo = () => {
+  return [
+    {
+      title: "Earworm",
+      params: "earworm",
+      image: "fredo_mora/kt4th7uvbd3k1ybdewfv",
+      image2: "fredo_mora/cmiybw6ihgebhuamthsf",
+      image3: "fredo_mora/ruk3k62g9c1rqnmivggb",
+      code: "https://github.com/AlfredoMora06/earworm_",
+      demo: "https://earwrm.io/",
+    },
+    {
+      title: "CUNY Hub",
+      params:"cuny-hub",
+      image: "fredo_mora/ktcikziriyxi94bjp7uf",
+      image2: "fredo_mora/fyzniouofwfdi4jco7f2",
+      image3: "fredo_mora/gbnjqe561ejrxoesupp4",
+      code: "https://github.com/nursimadonuk/CUNY_HUB_Project",
+      demo: "https://cunyhub.shinyapps.io/CUNY_HUB_Project/",
   },
-  {
-    title: "CUNY Hub",
-    params:"cuny-hub",
-    image: CunyHub,
-    image2: CunyHubTwo,
-    image3: CunyHubThree,
-    code: "https://github.com/nursimadonuk/CUNY_HUB_Project",
-    demo: "https://cunyhub.shinyapps.io/CUNY_HUB_Project/",
-},
-  {
-    title: "Recipe Finder",
-    params: "recipe-finder",
-    image: RecipeFinder,
-    code: "https://github.com/AlfredoMora06/RecipeFinder",
-  },
-  {
-    title: "Creativo",
-    params: "creativo",
-    image: creativo,
-    image2: CreativoTwo,
-    image3: CreativoThree,
-    image4: CreativoFour,
-    image5: CreativoFive,
-    image6: CreativoSix,
-    image7: CreativoSeven,
-    code: "https://github.com/AlfredoMora06/creative",
-    demo: "https://creative-lac.vercel.app/"
-  },
-  {
-    title: "CUNY Yak",
-    params: "cuny-yak",
-    image: CunyYak,
-    code: "https://github.com/AlfredoMora06/Grafic",
-  },
-  {
-    title: "Green Print",
-    params: "green-print",
-    image: GreenPrint,
-    code: "https://github.com/AlfredoMora06/GreenPrint-Project",
-  },
-]
+    {
+      title: "Recipe Finder",
+      params: "recipe-finder",
+      image: "fredo_mora/w1ae806xblumzfgx5ohr",
+      code: "https://github.com/AlfredoMora06/RecipeFinder",
+    },
+    {
+      title: "Creativo",
+      params: "creativo",
+      image: "fredo_mora/ggpxghbyavospwhzsloh",
+      image2: "fredo_mora/uy5e6famh5ur4ijiwwoh",
+      image3: "fredo_mora/i6xcuy43vlhfgusw8o06",
+      image4: "fredo_mora/vkr6fpp5nufrkp33pydy",
+      image5: "fredo_mora/dewxpqen6c9fmzeounvx",
+      image6: "fredo_mora/ibtcptkjxgopmsajy8cn",
+      image7: "fredo_mora/onameunabqlhlnlzvzla",
+      code: "https://github.com/AlfredoMora06/creative",
+      demo: "https://creative-lac.vercel.app/"
+    },
+    {
+      title: "CUNY Yak",
+      params: "cuny-yak",
+      image: "fredo_mora/rsvipm21iyis4nqj63lo",
+      code: "https://github.com/AlfredoMora06/Grafic",
+    },
+    {
+      title: "Green Print",
+      params: "green-print",
+      image: "fredo_mora/upmlcpe3kpbhvkwtoqiq",
+      code: "https://github.com/AlfredoMora06/GreenPrint-Project",
+    },
+  ]
+}

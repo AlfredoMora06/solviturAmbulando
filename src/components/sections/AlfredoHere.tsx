@@ -10,8 +10,6 @@ import { getProfile } from "../../store/features/profileSlice"
 import ContactMe from "../ContactMe"
 
 
-
-
 const imageStyle = {
   border: `0.5px solid ${lightBlack}`,
   borderRadius: "4px",

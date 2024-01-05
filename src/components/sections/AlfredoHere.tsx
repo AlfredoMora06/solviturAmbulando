@@ -1,33 +1,27 @@
 import React from "react"
 import Box from "@mui/material/Box"
-import { Fade, Slide, Typography, Container, useMediaQuery, useTheme } from "@mui/material"
+import { Fade, Typography, Container, useMediaQuery, useTheme } from "@mui/material"
 import Grid from "@mui/material/Grid"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import {Cloudinary} from "@cloudinary/url-gen"
-import { format } from "@cloudinary/url-gen/actions/delivery"
-import { auto } from "@cloudinary/url-gen/qualifiers/format"
-import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
-import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 import { lightBlack } from "../../theme"
 import { getProfile } from "../../store/features/profileSlice"
 import ContactMe from "../ContactMe"
 
 
+
+
 const imageStyle = {
-  width: "100%",
   border: `0.5px solid ${lightBlack}`,
   borderRadius: "4px",
   opacity: 0.9
 }
 
-
 export default function AlfredoHere():JSX.Element {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const profile = useSelector(getProfile)
-  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
 
   const {i18n, t} = useTranslation("common")
 
@@ -37,23 +31,6 @@ export default function AlfredoHere():JSX.Element {
       i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
     }
   }, [i18n, profile.language])
-
-  const SunsetTezo = cld.image('fredo_mora/if2b7bxyesgscqfninta')
-    .delivery(quality(qualityAuto()))
-    .delivery(format(auto()))
-    .toURL()
-  const Abril = cld.image('fredo_mora/ciwlml5d8aqltqtxhdno')
-    .quality(qualityAuto())
-    .delivery(format(auto()))
-    .toURL()
-  const SelfBrick = cld.image('fredo_mora/bnkp44sgd0ylosfsn9sc')
-    .delivery(quality(qualityAuto()))
-    .delivery(format(auto()))
-    .toURL()
-  const BaliPose = cld.image('fredo_mora/ctonn8ujhudssrwkz1so')
-    .delivery(quality(qualityAuto()))
-    .delivery(format(auto()))
-    .toURL()
 
 
   return (
@@ -124,7 +101,8 @@ export default function AlfredoHere():JSX.Element {
                   paddingTop={isMobile ? 10 : 0}
                 >
                   <img
-                    src={SunsetTezo}
+                    width={"100%"}
+                    src={'https://res.cloudinary.com/dftye6vpx/image/upload/f_auto,q_auto/v1/fredo_mora/if2b7bxyesgscqfninta'}
                     alt="tezo"
                     style={imageStyle}
                     placeholder="blur"
@@ -132,31 +110,30 @@ export default function AlfredoHere():JSX.Element {
                 </Grid>
               </Fade>
               <Grid item container xs={12} md={5} alignContent="flex-end" paddingBottom={isMobile ? 3 : 0}>
-                <Slide direction="down" in={true} unmountOnExit timeout={1000}>
-                  <img
-                    src={SelfBrick}
-                    alt="brickwall"
-                    style={imageStyle}
-                    placeholder="blur"
-                  />
-                </Slide>
+                <img
+                  width={"100%"}
+                  src={'https://res.cloudinary.com/dftye6vpx/image/upload/f_auto,q_auto/v1/fredo_mora/bnkp44sgd0ylosfsn9sc'}
+                  alt="brickwall"
+                  style={imageStyle}
+                  placeholder="blur"
+                />
               </Grid>
             </Grid>
             <Grid item container>
               <Grid item xs={12} md={5} paddingBottom={isMobile ? 4 : 0}>
-                <Slide direction="up" in={true} unmountOnExit timeout={1000}>
-                  <img
-                    src={BaliPose}
-                    alt="bali"
-                    style={imageStyle}
-                    placeholder="blur"
-                  />
-                </Slide>
+                <img
+                  width={"100%"}
+                  src={'https://res.cloudinary.com/dftye6vpx/image/upload/f_auto,q_auto/v1/fredo_mora/ctonn8ujhudssrwkz1so'}
+                  alt="bali"
+                  style={imageStyle}
+                  placeholder="blur"
+                />
               </Grid>
               <Fade in={true} timeout={1000}>
                 <Grid item xs={12} md={7} paddingLeft={1} paddingBottom={isMobile ? 4 : 0}>
                   <img
-                    src={Abril}
+                    width={"100%"}
+                    src={'https://res.cloudinary.com/dftye6vpx/image/upload/f_auto,q_auto/v1/fredo_mora/ciwlml5d8aqltqtxhdno'}
                     alt="abril"
                     style={imageStyle}
                     placeholder="blur"

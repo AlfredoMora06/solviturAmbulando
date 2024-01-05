@@ -1,5 +1,3 @@
-import React from "react"
-
 import Navbar from "../components/Navbar"
 import AlfredoHere from "../components/sections/AlfredoHere"
 import Footer from "../components/sections/Footer"

@@ -93,7 +93,9 @@
       "green-print": "Project was created as a submission for the Lehman College Hackathon with a group of three. I was in charge of analyzing, aggregating, and wrangling a 16,000 line dataset with Python and pandas. Engineered an algorithm that detected the amount of CO2 emitted by a specific vehicle.",
       "green-printDesc": "What's your green print in the world? An under-construction web application built with Flask that traces individual carbon emissions (CO2 levels) for household products and vehicles, and returns their carbon footprint.",
       "creativo": "This is an HTML/CSS website built to show MEDP 150 class content. It is a site that showcases creative tasks that involve anything from creating posters using common art methodologies as well as photoshopping images. Created a small HTML game that I hope to display here shortly.",
-      "creativoDesc": "A website that shows photos of NYC and a blog of responses towards Media articles of our current lives. This is an HTML/CSS website built to show MEDP 150 class content."
+      "creativoDesc": "A website that shows photos of NYC and a blog of responses towards Media articles of our current lives. This is an HTML/CSS website built to show MEDP 150 class content.",
+      "jarryfall": "I was in charge of bringing the design to life for this freelance project in where I captured Jarry Fall's design essence and was able to add my Frontend expertise as well to her portfolio. The portfolio contains individual projects she has worked on, her story and career history, as well as new ideas she continues to put out into the world.",
+      "jarryfallDesc": "This is a website built with React, Material-UI, and deployed on Vercel, created for Jarry Fall to showcase her work and journey as a UI/UX Designer."
     }
   }
 }

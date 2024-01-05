@@ -38,7 +38,7 @@ export default function ProjectNameSlogan(
         <Grid container spacing={2}>
           <Fade in={true} timeout={1000}>
             <Grid item xs={12} container>
-              <Grid item container xs={12} md={6} justifyContent={isMobile ? "center" : "flex-start"} paddingBottom={isMobile ? 2 : 0}>
+              <Grid item container xs={12} md={7} justifyContent={isMobile ? "center" : "flex-start"} paddingBottom={isMobile ? 2 : 0}>
                 <Typography 
                   variant="h1" 
                   style={{ 
@@ -50,7 +50,7 @@ export default function ProjectNameSlogan(
                   {projectTitle}
                 </Typography>
               </Grid>
-              <Grid item container xs={12} md={6} justifyContent={isMobile ? "center" : "flex-end"}>
+              <Grid item container xs={12} md={5} justifyContent={isMobile ? "center" : "flex-end"}>
                 <Button
                   variant="text"
                   onClick={()=>window.open(`${githubLink}`,'_blank', 'rel=noopener noreferrer')}    

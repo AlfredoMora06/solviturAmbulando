@@ -39,7 +39,7 @@ export default function ProjectBody(
       .toURL()
     : ""
   const array1ProjectImage = photoArrayList[1] 
-  ? cld.image(photoArrayList[0])
+  ? cld.image(photoArrayList[1])
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()

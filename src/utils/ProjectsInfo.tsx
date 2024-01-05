@@ -2,6 +2,15 @@
 export const projectInfo = () => {
   return [
     {
+      title: "Freelance (Jarry Fall)",
+      params: "jarryfall",
+      image: "fredo_mora/f3v7rmtueieqmmzww5tb",
+      image2: "fredo_mora/jfzy0jgrb0v4luxvkcgx",
+      image3: "fredo_mora/gyqer9tvbupc6hr9utzd",
+      code: "https://github.com/AlfredoMora06/jarry_fall_site",
+      demo: "jarryfall.vercel.app",
+    },
+    {
       title: "Earworm",
       params: "earworm",
       image: "fredo_mora/kt4th7uvbd3k1ybdewfv",

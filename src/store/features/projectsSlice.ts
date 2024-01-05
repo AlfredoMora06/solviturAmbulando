@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { ProjectInfo } from "../../utils/ProjectsInfo"
+import { projectInfo } from "../../utils/ProjectsInfo"
 
 
 const initialState = {
-  items: [...ProjectInfo()]
+  items: [...projectInfo()]
 }
 
 export const projectSlice = createSlice({

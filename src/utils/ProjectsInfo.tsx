@@ -1,5 +1,5 @@
 
-export const ProjectInfo = () => {
+export const projectInfo = () => {
   return [
     {
       title: "Earworm",

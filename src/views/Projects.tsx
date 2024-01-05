@@ -18,10 +18,10 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import { honeyDew, lightBlack, lightGray } from "../theme"
 import { getProfile } from "../store/features/profileSlice"
-import { ProjectInfo } from "../utils/ProjectsInfo"
+import { projectInfo } from "../utils/ProjectsInfo"
 
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles<Theme>(() => ({
   button: {
     overflow: "hidden",
     "&:hover": {
@@ -101,7 +101,7 @@ export default function Projects():JSX.Element {
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
-              {ProjectInfo().map((project) => {
+              {projectInfo().map((project: any) => {
                 const {image, params, title} = project
 
                 const cdnImagePath = cld.image(image)

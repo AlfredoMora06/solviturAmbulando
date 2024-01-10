@@ -8,7 +8,7 @@ export const projectInfo = () => {
       image2: "fredo_mora/jfzy0jgrb0v4luxvkcgx",
       image3: "fredo_mora/gyqer9tvbupc6hr9utzd",
       code: "https://github.com/AlfredoMora06/jarry_fall_site",
-      demo: "jarryfall.vercel.app",
+      demo: "https://jarryfall.vercel.app",
     },
     {
       title: "Earworm",

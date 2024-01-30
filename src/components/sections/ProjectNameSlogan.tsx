@@ -41,11 +41,13 @@ export default function ProjectNameSlogan(
               <Grid item container xs={12} md={7} justifyContent={isMobile ? "center" : "flex-start"} paddingBottom={isMobile ? 2 : 0}>
                 <Typography 
                   variant="h1" 
+                  align={isMobile ? "center" : "left"}
                   style={{ 
                     fontSize: isMobile ? 55 : 65, 
                     fontWeight: 700, 
                     color: lightGray,
                   }}
+                  mb={isMobile ? 2: 0}
                 >
                   {projectTitle}
                 </Typography>

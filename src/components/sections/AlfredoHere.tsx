@@ -47,7 +47,7 @@ export default function AlfredoHere():JSX.Element {
             </Grid>
             <Grid item container justifyContent="space-between">
               <Grid item xs={3} paddingTop={10}>
-                <ContactMe />
+                <ContactMe isMobile={isMobile}/>
               </Grid>
   
               <Grid item xs={3} paddingTop={10}>

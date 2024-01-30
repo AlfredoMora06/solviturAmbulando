@@ -35,7 +35,7 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }))
 
-export default function ContactMe():JSX.Element {
+export default function ContactMe({isMobile}: {isMobile: boolean}):JSX.Element {
   const classes = useStyles()
   const profile = useSelector(getProfile)
   const [dialog, setDialog] = useState<boolean>(false)
@@ -83,7 +83,7 @@ export default function ContactMe():JSX.Element {
 
   return (
     <>
-      <LightTooltip placement='top' title={t("Home.clickMe")} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} open={showTooltipBasedOnEverything}>
+      <LightTooltip placement={isMobile ? 'bottom' : 'top'} title={t("Home.clickMe")} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} open={showTooltipBasedOnEverything}>
         <div className="image-block-wrapper" data-animation-role="image">
           <div style={{ position: "relative", paddingBottom: "94.20289611816406%", overflow: "hidden" }}>
             <noscript>

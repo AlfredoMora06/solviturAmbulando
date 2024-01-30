@@ -1,6 +1,6 @@
 import React from 'react'
 import { useMediaQuery, useTheme } from '@mui/material'
-import {useLocation, useNavigate, useParams} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
@@ -12,16 +12,13 @@ import { Project } from '../types/Project'
 
 export default function SingleProject():JSX.Element {
   let { project_name } = useParams()
-  const location = useLocation()
   const navigate = useNavigate()
   const photoArrayList:string[] = []
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
-  console.log(location)
   const project = projectInfo().find((p: Project) => p.params === project_name)
 
   React.useEffect(() => {
-    console.log(project)
     if (project_name == null || project == null) {
       navigate(`/0/projects`)
       window.scrollTo(0, 0)

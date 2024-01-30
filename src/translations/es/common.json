@@ -93,7 +93,9 @@
       "green-print": "El proyecto se creó como una presentación para el Hackathon de Lehman College con un grupo de tres. Estuve a cargo de analizar, agregar y gestionar un conjunto de datos de 16.000 líneas con Python y pandas. Diseñó un algoritmo que detectaba la cantidad de CO2 emitida por un vehículo específico.",
       "green-printDesc": "¿Cuál es tu huella verde en el mundo? Una aplicación web en construcción creada con Flask que rastrea las emisiones de carbono individuales (niveles de CO2) de productos para el hogar y vehículos, y devuelve su huella de carbono.",
       "creativo": "Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150. Es un sitio que muestra tareas creativas que involucran desde la creación de carteles utilizando metodologías artísticas comunes hasta imágenes de photoshop. Creé un pequeño juego HTML que espero mostrar aquí en breve.",
-      "creativoDesc": "Un sitio web que muestra fotos de Nueva York y un blog de respuestas a artículos de los medios sobre nuestra vida actual. Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150."
+      "creativoDesc": "Un sitio web que muestra fotos de Nueva York y un blog de respuestas a artículos de los medios sobre nuestra vida actual. Este es un sitio web HTML/CSS creado para mostrar contenido de la clase MEDP 150.",
+      "jarryfall": "Estuve a cargo de darle vida al diseño de este proyecto independiente en el que capturé la esencia del diseño de Jarry Fall y pude agregar mi experiencia en Frontend a su cartera. La cartera contiene proyectos individuales en los que ha trabajado , su historia y trayectoria profesional, así como las nuevas ideas que continúa presentando al mundo.",
+      "jarryfallDesc": "Este es un sitio web creado con React, Material-UI e implementado en Vercel, creado para Jarry Fall para mostrar su trabajo y trayectoria como diseñadora UI/UX"
     }
   }
 }

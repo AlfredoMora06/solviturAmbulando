@@ -1,40 +1,43 @@
-import { useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import {useLocation, useNavigate} from 'react-router-dom'
+import { useMediaQuery, useTheme } from '@mui/material'
+import {useLocation, useNavigate, useParams} from 'react-router-dom'
 
 import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import ProjectBody from '../components/sections/ProjectBody'
 import ProjectNameSlogan from '../components/sections/ProjectNameSlogan'
-import { getProjects } from '../store/features/projectsSlice'
 import { honeyDew, lightBlack } from "../theme"
+import { projectInfo } from '../utils/ProjectsInfo'
+import { Project } from '../types/Project'
 
 export default function SingleProject():JSX.Element {
+  let { project_name } = useParams()
   const location = useLocation()
   const navigate = useNavigate()
   const photoArrayList:string[] = []
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
-  const projects = useSelector(getProjects)
-  const project = projects.find((p: any) => p.title === location.state.title)
-
-  if(location.state.image2) photoArrayList.push(location.state.image2)
-  if(location.state.image3) photoArrayList.push(location.state.image3)
-  if(location.state.image4) photoArrayList.push(location.state.image4)
-  if(location.state.image5) photoArrayList.push(location.state.image5)
-  if(location.state.image6) photoArrayList.push(location.state.image6)
-  if(location.state.image7) photoArrayList.push(location.state.image7)
-  
+  console.log(location)
+  const project = projectInfo().find((p: Project) => p.params === project_name)
 
   React.useEffect(() => {
-    if (location.state == null) {
+    console.log(project)
+    if (project_name == null || project == null) {
       navigate(`/0/projects`)
       window.scrollTo(0, 0)
     }
-  }, [location.state, navigate])
+  }, [project_name, navigate, project])
 
-  return location.state && project ? (
+  if(!!project){
+    if(project.image2) photoArrayList.push(project.image2)
+    if(project.image3) photoArrayList.push(project.image3)
+    if(project.image4) photoArrayList.push(project.image4)
+    if(project.image5) photoArrayList.push(project.image5)
+    if(project.image6) photoArrayList.push(project.image6)
+    if(project.image7) photoArrayList.push(project.image7)
+  }
+
+  return project_name && project ? (
     <>
       <div
         style={{
@@ -44,15 +47,15 @@ export default function SingleProject():JSX.Element {
       >
         <Navbar dark={true} />
         <ProjectNameSlogan 
-          projectTitle={location.state.title} 
+          projectTitle={project.title} 
           projectParams={project.params}
-          githubLink={location.state.code}
-          demoLink={location.state.demo ?? null}
+          githubLink={project.code}
+          demoLink={project.demo ?? null}
           isMobile={isMobile}
         />
         <ProjectBody
-          projectImage={location.state.image}
-          projectTitle={location.state.title}
+          projectImage={project.image}
+          projectTitle={project.title}
           photoArrayList={photoArrayList}
           isMobile={isMobile}
           projectParams={project.params}

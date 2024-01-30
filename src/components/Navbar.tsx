@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -42,7 +42,6 @@ export default function Navbar (
     { title: t("Navbar.photography"), link: "../0/photography"},
   ]
   
-
   const location = useLocation()  
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -88,23 +87,23 @@ export default function Navbar (
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: dark ? lightGray : "black",
-              textDecoration: "none",
-            }}
-          >
-            Alfredo Morales
-          </Typography>
+          <Box display={{xs: "none", md: "flex"}}>
+            <Link
+              to={'/'}
+              style={{ 
+                marginRight: 2,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: dark ? lightGray : "black",
+                textDecoration: "none",
+                fontSize: 20
+               }}
+              onClick={() => {window.scrollTo(0, 0)}}
+            >
+              Alfredo Morales
+            </Link>
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton

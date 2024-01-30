@@ -19,11 +19,13 @@ import Footer from "../components/sections/Footer"
 import { honeyDew, lightBlack, lightGray } from "../theme"
 import { getProfile } from "../store/features/profileSlice"
 import { projectInfo } from "../utils/ProjectsInfo"
+import { Project } from "../types/Project"
 
 
 const useStyles = makeStyles<Theme>(() => ({
   button: {
     overflow: "hidden",
+    borderRadius: 20,
     "&:hover": {
       "& img": {
         outline: `3px solid ${lightGray}`,
@@ -101,15 +103,15 @@ export default function Projects():JSX.Element {
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} justifyContent="center">
-              {projectInfo().map((project: any) => {
-                const {image, params, title} = project
+              {projectInfo().map((project: Project, index: number) => {
+                const {image, params, title, } = project
 
                 const cdnImagePath = cld.image(image)
                   .delivery(quality(qualityAuto()))
                   .delivery(format(auto()))
                   .toURL()
 
-                return (
+                return isMobile ? (
                   <Fade in={true} timeout={1800} key={title}>
                     <Grid
                       item
@@ -127,7 +129,7 @@ export default function Projects():JSX.Element {
                           window.scrollTo(0, 0)
                         }}
                       >
-                        <img loading="lazy" src={cdnImagePath} width="100%" alt="folder" height="100%" style={{transition: "transform .2s"}}/>
+                        <img loading="lazy" src={cdnImagePath} width="100%" alt="folder" height="100%" style={{transition: "transform .2s", borderRadius: 20}}/>
                         <div className={classes.middle}>
                           <Typography variant="h5" style={{color: lightGray, fontWeight: 700}}>
                             {title}
@@ -136,6 +138,64 @@ export default function Projects():JSX.Element {
                       </Button>
                     </Grid>
                   </Fade>
+                ) : (
+                  <Grid
+                    container
+                    item
+                    xs={12}
+                    direction={index % 2 === 0 ? "row" : "row-reverse"}
+                    style={{ marginTop: 50 }}
+                    key={title}
+                  >
+                    <Fade in={true} timeout={1800}>
+                      <Grid item xs={6} container alignItems={"center"}>
+                        <Button 
+                          variant="text" 
+                          className={classes.button}
+                          onClick={() => {
+                            navigate(`/0/projects/${params}`, {state: project})
+                            window.scrollTo(0, 0)
+                          }}
+                        >
+                          <img loading="lazy" src={cdnImagePath} width="100%" alt="folder" style={{transition: "transform .2s", borderRadius: 20}}/>
+                          <div className={classes.middle}>
+                            <Typography variant="h5" style={{color: lightGray, fontWeight: 700}}>
+                              {title}
+                            </Typography>
+                          </div>
+                        </Button>
+                      </Grid>
+                    </Fade>
+                    <Grid item xs={6}>
+                      <Typography 
+                        paddingLeft={index % 2 === 0 ? 3 : 0} 
+                        paddingRight={index % 2 === 0 ? 0 : 3}
+                        align={index % 2 === 0 ? "right" : "left"}
+                        variant="h4" 
+                        fontWeight={500}
+                        sx={{color: lightGray}}
+                      >
+                        {title}
+                      </Typography>
+                      <Box 
+                        p={4} 
+                        mt={4}
+                        ml={index % 2 === 0 ? 5 : 0} 
+                        mr={index % 2 === 0 ? 0 : 5} 
+                        sx={{background: 'rgba(230, 232, 230, 0.1)', borderRadius: 5}}
+                      >
+                        <Typography 
+                          align={index % 2 === 0 ? "right" : "left"}
+                          variant="h6" 
+                          fontWeight={400}
+                          sx={{color: lightGray}}
+                          fontSize={18}
+                        >
+                          {t(`Projects.SingleProject.${params}Desc`)}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
                 )
               })}
             </Grid>

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
+import { List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -26,8 +27,15 @@ export default function Navbar (
 ): JSX.Element {
   const profile = useSelector(getProfile)
   const {i18n, t} = useTranslation("common")
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElNavLan, setAnchorElNavLan] = React.useState(null)
+  const [drawer, setDrawer] = React.useState(false)
+  const location = useLocation()  
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const bottomBorder = dark ? lightGray : lightBlack
+  const showLanguage = true
+
+
 
   const pages = [
     { title: t("Navbar.about"), link: "../0/about" },
@@ -36,42 +44,51 @@ export default function Navbar (
   ]
   
   const pagesMobile = [
-    { title: t("Navbar.home"), link: "../0/home"},
+    { title: t("Navbar.home"), link: "../"},
     { title: t("Navbar.about"), link: "../0/about" },
     { title: t("Navbar.projects"), link: "../0/projects" },
     { title: t("Navbar.photography"), link: "../0/photography"},
   ]
-  
-  const location = useLocation()  
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const bottomBorder = dark ? lightGray : lightBlack
-  const showLanguage = true
 
-  const handleOpenNavMenu = (event: any) => {
-    setAnchorElNav(event.currentTarget)
+  const toggleDrawer = (open: boolean) =>  (event: React.KeyboardEvent | React.MouseEvent) => { 
+    setDrawer(open)
   }
 
-  const handleOpenNavMenuLan = (event: any) => {
-    setAnchorElNavLan(event.currentTarget)
-  }
+const handleOpenNavMenuLan = (event: any) => {
+  setAnchorElNavLan(event.currentTarget)
+}
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+const handleCloseNavMenuLan = () => {
+  setAnchorElNavLan(null)
+}
 
-  const handleCloseNavMenuLan = () => {
-    setAnchorElNavLan(null)
-  }
+const handleCloseNavMenuLanRefresh = (language: string) => {
+  dispatch(updateLanguage(language))
+}
 
-  const handleCloseNavMenuRedirect = (link: string) => {
-    setAnchorElNav(null)
-    navigate(link)
-  }
+const handleCloseNavMenuRedirect = (link: string) => {
+  navigate(link)
+  toggleDrawer(false)
+}
 
-  const handleCloseNavMenuLanRefresh = (language: string) => {
-    dispatch(updateLanguage(language))
-  }
+const list = () => (
+  <Box
+    sx={{ width: 250 }}
+    role="presentation"
+    onClick={toggleDrawer(false)}
+    onKeyDown={toggleDrawer(false)}
+  >
+    <List>
+      {pagesMobile.map((page) => (
+        <ListItem key={page.title} disablePadding>
+          <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
+            <ListItemText primary={page.title} sx={{color: dark ? lightGray : lightBlack}}/>
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+  </Box>
+)
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -111,32 +128,21 @@ export default function Navbar (
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer(true)}
               style={{color: dark ? lightGray : lightBlack}}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{ vertical: "bottom", horizontal: "left"}}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+            <SwipeableDrawer
+              PaperProps={{
+                sx: { width: "80%" , backgroundColor: dark ? lightBlack : lightGray},
               }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" }}}
+              open={drawer}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
             >
-              { pagesMobile.map((page, index) => {
-                return (
-                  <MenuItem key={index} onClick={() => {handleCloseNavMenuRedirect(page.link)}}>  
-                    <Typography textAlign="center">{page.title}</Typography>
-                  </MenuItem>
-                )}
-              )}
-            </Menu>
+              {list()}
+            </SwipeableDrawer>
           </Box>
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => {

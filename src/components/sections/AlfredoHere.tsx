@@ -45,7 +45,7 @@ export default function AlfredoHere():JSX.Element {
                 {t("Home.secondParagraph")}
               </Typography>
             </Grid>
-            <Grid item container justifyContent="space-between">
+            <Grid item container justifyContent="space-between" paddingTop={isMobile ? 5 : 0}>
               <Grid item xs={3} paddingTop={10}>
                 <ContactMe isMobile={isMobile}/>
               </Grid>

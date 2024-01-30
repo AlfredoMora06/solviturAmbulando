@@ -7,19 +7,19 @@ export const WorkExperiences = (
   return [
     {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
+      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
       position: t("About.WorkCard.softwareEngineerII"),
       date: t("About.WorkCard.Dates.tracflo3")
     },
     {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
+      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
       position: t("About.WorkCard.softwareEngineerI"),
       date: t("About.WorkCard.Dates.tracflo2")
     },
     {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1572990352373/tracflo_logo?e=1706140800&v=beta&t=lCBiJmbkLHfuLjbDBGPsCdf4vtRV_wH9PVjLBggxjKw",
+      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
       position: t("About.WorkCard.softwareEngineerIntern"),
       date: t("About.WorkCard.Dates.tracflo1")
     },
@@ -45,7 +45,7 @@ export const EducationExperiences = (
     },
     {
       workTitle: "CUNY Tech Prep",
-      image: "https://media.licdn.com/dms/image/C4E0BAQE2heJzO0qrMA/company-logo_100_100/0/1657824337700/cuny_tech_prep_logo?e=1706140800&v=beta&t=P7c01jerQVsWepDY5AC-u6hst1jW1Ko8veXOdAlBgUk",
+      image: "https://media.licdn.com/dms/image/C4E0BAQE2heJzO0qrMA/company-logo_100_100/0/1657824338053/cuny_tech_prep_logo?e=1714608000&v=beta&t=fxEaKAYwLbNuSbpXovB-WxmYrIigs0IpGXW2PlsP5qE",
       position: t("About.WorkCard.apprenticeship"),
       date: t("About.WorkCard.Dates.ctp")
     },

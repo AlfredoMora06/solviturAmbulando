@@ -63,15 +63,15 @@ export default function About():JSX.Element {
                   </Typography>
                   { profile.language === 'en'
                     ? <Fade in={true} timeout={2000}>
-                      <Typography sx={{color: honeyDew}} align={isMobile ? "center" : "left"} pt={2}>
-                        * An unexplored life is not worth living
+                      <Typography sx={{color: honeyDew}} align={isMobile ? "center" : "left"} pt={2} fontStyle={'italic'}>
+                        An unexplored life is not worth living
                       </Typography>
                     </Fade>
                     : <></>
                   }
                 </Grid>
               </Grid>
-              <Grid item xs={1}></Grid>
+              <Grid item xs={1} mt={isMobile && profile.language === 'es' ? 5 : 0}></Grid>
               
               <Fade in={true} timeout={1000}>
                 <Grid item container xs={12} md={4} justifyContent="center" alignItems={'center'}>

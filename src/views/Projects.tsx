@@ -183,7 +183,7 @@ export default function Projects():JSX.Element {
                           mt={4}
                           ml={index % 2 === 0 ? 5 : 0} 
                           mr={index % 2 === 0 ? 0 : 5} 
-                          sx={{background: 'rgba(230, 232, 230, 0.1)', borderRadius: 5}}
+                          sx={{background: 'rgba(159, 184, 173, 0.2)', borderRadius: 5}}
                         >
                           <Typography 
                             align={index % 2 === 0 ? "right" : "left"}
@@ -197,7 +197,7 @@ export default function Projects():JSX.Element {
                         </Box>
                       </Grid>
                     </Grid>
-                    <hr color={lightGray} style={{marginTop: 80, width: '80%', opacity: 0.4}}/>
+                    <hr color={honeyDew} style={{marginTop: 80, width: '80%', opacity: 0.2}}/>
                   </>
                 )
               })}

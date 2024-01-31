@@ -47,7 +47,7 @@ export default function About():JSX.Element {
         <Navbar dark={true} />
         <Container sx={{ paddingY: 8 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2} paddingBottom={10}>
+            <Grid container spacing={2} paddingBottom={isMobile ? 6 : 10}>
               <Grid item xs={12} md={6} container alignItems={"center"}>
                 <Grid item xs={12}>
                   <Typography

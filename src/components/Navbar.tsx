@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material"
+import { Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -80,13 +80,11 @@ export default function Navbar (
     >
       <List>
         {pagesMobile.map((page) => (
-          <>
-            <ListItem key={page.title} disablePadding>
-              <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
-                <ListItemText primary={page.title} sx={{color: dark ? lightGray : lightBlack, fontWeight: 500}}/>
-              </ListItemButton>
-            </ListItem>
-          </>
+          <ListItem key={page.title} disablePadding>
+            <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
+              <ListItemText primary={page.title} sx={{color: dark ? lightGray : lightBlack, fontWeight: 500}}/>
+            </ListItemButton>
+          </ListItem>
         ))}
       </List>
     </Box>
@@ -135,16 +133,15 @@ export default function Navbar (
             >
               <MenuIcon />
             </IconButton>
-            <SwipeableDrawer
+            <Drawer
               PaperProps={{
-                sx: { width: "50%" , backgroundColor: dark ? lightBlack : lightGray},
+                sx: { width: "50%" , backgroundColor: dark ? lightBlack : lightGray, overflow: "hidden",},
               }}
               open={drawer}
               onClose={toggleDrawer(false)}
-              onOpen={toggleDrawer(true)}
             >
               {list()}
-            </SwipeableDrawer>
+            </Drawer>
           </Box>
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => {

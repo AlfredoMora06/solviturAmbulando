@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
+import { List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -133,15 +133,16 @@ export default function Navbar (
             >
               <MenuIcon />
             </IconButton>
-            <Drawer
+            <SwipeableDrawer
               PaperProps={{
                 sx: { width: "50%" , backgroundColor: dark ? lightBlack : lightGray, overflow: "hidden",},
               }}
               open={drawer}
               onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
             >
               {list()}
-            </Drawer>
+            </SwipeableDrawer>
           </Box>
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => {

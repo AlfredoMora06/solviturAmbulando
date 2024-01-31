@@ -54,41 +54,43 @@ export default function Navbar (
     setDrawer(open)
   }
 
-const handleOpenNavMenuLan = (event: any) => {
-  setAnchorElNavLan(event.currentTarget)
-}
+  const handleOpenNavMenuLan = (event: any) => {
+    setAnchorElNavLan(event.currentTarget)
+  }
+  
+  const handleCloseNavMenuLan = () => {
+    setAnchorElNavLan(null)
+  }
 
-const handleCloseNavMenuLan = () => {
-  setAnchorElNavLan(null)
-}
+  const handleCloseNavMenuLanRefresh = (language: string) => {
+    dispatch(updateLanguage(language))
+  }
 
-const handleCloseNavMenuLanRefresh = (language: string) => {
-  dispatch(updateLanguage(language))
-}
+  const handleCloseNavMenuRedirect = (link: string) => {
+    navigate(link)
+    toggleDrawer(false)
+  }
 
-const handleCloseNavMenuRedirect = (link: string) => {
-  navigate(link)
-  toggleDrawer(false)
-}
-
-const list = () => (
-  <Box
-    sx={{ width: 250 }}
-    role="presentation"
-    onClick={toggleDrawer(false)}
-    onKeyDown={toggleDrawer(false)}
-  >
-    <List>
-      {pagesMobile.map((page) => (
-        <ListItem key={page.title} disablePadding>
-          <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
-            <ListItemText primary={page.title} sx={{color: dark ? lightGray : lightBlack}}/>
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-  </Box>
-)
+  const list = () => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {pagesMobile.map((page) => (
+          <>
+            <ListItem key={page.title} disablePadding>
+              <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
+                <ListItemText primary={page.title} sx={{color: dark ? lightGray : lightBlack, fontWeight: 500}}/>
+              </ListItemButton>
+            </ListItem>
+          </>
+        ))}
+      </List>
+    </Box>
+  )
 
   React.useEffect(() => {
     // switch to profile preferred language

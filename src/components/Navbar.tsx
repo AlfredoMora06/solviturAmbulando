@@ -135,7 +135,7 @@ const list = () => (
             </IconButton>
             <SwipeableDrawer
               PaperProps={{
-                sx: { width: "80%" , backgroundColor: dark ? lightBlack : lightGray},
+                sx: { width: "50%" , backgroundColor: dark ? lightBlack : lightGray},
               }}
               open={drawer}
               onClose={toggleDrawer(false)}

@@ -1,6 +1,6 @@
 export type Experience = {
   workTitle: string,
-  image?: string,
+  image?: any,
   position: string,
   date: string,
 }

@@ -1,5 +1,12 @@
 import { Experience } from "../types/Experience"
-
+//@ts-ignore
+import cuny_k16_initiatives_logo from "../assets/cuny_k16_initiatives_logo.jpeg"
+//@ts-ignore
+import in_the_lab_pm_logo from "../assets/in_the_lab_pm_logo.jpeg"
+//@ts-ignore
+import hunter_college_logo from "../assets/hunter_college_logo.jpeg"
+//@ts-ignore
+import tealsk12_logo from "../assets/tealsk12_logo.jpeg"
 
 export const WorkExperiences = (
   t: (s: string) => string,
@@ -25,7 +32,7 @@ export const WorkExperiences = (
     },
     {
       workTitle: "CUNY K16 Initiatives",
-      image: "https://media.licdn.com/dms/image/C4E0BAQHohMw7_hiXvQ/company-logo_100_100/0/1663618846214/cuny_k16_initiatives_logo?e=1706745600&v=beta&t=YO6qiZZLjCc5DblAPlqH0C1z9679-VjNAknumMRBfSw",
+      image: cuny_k16_initiatives_logo,
       position: t("About.WorkCard.computerScienceTutor"),
       date: t("About.WorkCard.Dates.cunyK")
     }
@@ -39,7 +46,7 @@ export const EducationExperiences = (
   return [
     {
       workTitle: "InTheLab",
-      image: "https://media.licdn.com/dms/image/C560BAQFYCKdqbmOSuw/company-logo_100_100/0/1655339856108/in_the_lab_pm_logo?e=1706745600&v=beta&t=Reuze65bJz1QegWag2LnJS_EFH4GPbS0R9HgP6-7JFA",
+      image: in_the_lab_pm_logo,
       position: t("About.WorkCard.productManagementCourse"),
       date: t("About.WorkCard.Dates.inTheLab")
     },
@@ -51,7 +58,7 @@ export const EducationExperiences = (
     },
     {
       workTitle: "Hunter College",
-      image: "https://media.licdn.com/dms/image/D4D0BAQFogWwnz8wJ7Q/company-logo_100_100/0/1690227914898/hunter_college_logo?e=1706745600&v=beta&t=_Ti9JEuiWehJqCEl9f3ieTiGME12Nh7SoPi6c3JPZ_k",
+      image: hunter_college_logo,
       position: t("About.WorkCard.baComputerScience"),
       date:  t("About.WorkCard.Dates.hunter")
     },
@@ -64,7 +71,7 @@ export const VolunteerExperiences = (
   return [
     {
       workTitle: "Microsoft TEALS",
-      image: "https://media.licdn.com/dms/image/C560BAQFBJeuU0AdwYg/company-logo_100_100/0/1563393546690/tealsk12_logo?e=1706745600&v=beta&t=OtFhFec-oPDXlLMREAbgQ_v83VZlqoOFXkFJLxJAP6w",
+      image: tealsk12_logo,
       position: t("About.WorkCard.computerLabAssistant"),
       date:  t("About.WorkCard.Dates.teals")
     },

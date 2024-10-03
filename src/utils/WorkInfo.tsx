@@ -7,26 +7,38 @@ import in_the_lab_pm_logo from "../assets/in_the_lab_pm_logo.jpeg"
 import hunter_college_logo from "../assets/hunter_college_logo.jpeg"
 //@ts-ignore
 import tealsk12_logo from "../assets/tealsk12_logo.jpeg"
+//@ts-ignore
+import tracflo_logo from "../assets/tracflo_logo.jpeg"
+//@ts-ignore
+import cuny_tech_prep_logo from "../assets/cuny_tech_prep_logo.jpeg"
+//@ts-ignore
+import wildfire_systems_inc_logo from "../assets/wildfire_systems_inc_logo.jpeg"
 
 export const WorkExperiences = (
   t: (s: string) => string,
 ): Experience[] => {
   return [
     {
+      workTitle: "Wildfire Systems Inc",
+      image: wildfire_systems_inc_logo,
+      position: t("About.WorkCard.softwareEngineer"),
+      date: t("About.WorkCard.Dates.wildfire")
+    },
+    {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
+      image: tracflo_logo,
       position: t("About.WorkCard.softwareEngineerII"),
       date: t("About.WorkCard.Dates.tracflo3")
     },
     {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
+      image: tracflo_logo,
       position: t("About.WorkCard.softwareEngineerI"),
       date: t("About.WorkCard.Dates.tracflo2")
     },
     {
       workTitle: "TracFlo",
-      image: "https://media.licdn.com/dms/image/C4D0BAQG6CfTiwKpeEA/company-logo_100_100/0/1630493741706/tracflo_logo?e=1714608000&v=beta&t=zeheLbiLDt_nK4RaGKHBzWhRWffBXTGHfxUuF0099x0",
+      image: tracflo_logo,
       position: t("About.WorkCard.softwareEngineerIntern"),
       date: t("About.WorkCard.Dates.tracflo1")
     },
@@ -52,7 +64,7 @@ export const EducationExperiences = (
     },
     {
       workTitle: "CUNY Tech Prep",
-      image: "https://media.licdn.com/dms/image/C4E0BAQE2heJzO0qrMA/company-logo_100_100/0/1657824338053/cuny_tech_prep_logo?e=1714608000&v=beta&t=fxEaKAYwLbNuSbpXovB-WxmYrIigs0IpGXW2PlsP5qE",
+      image: cuny_tech_prep_logo,
       position: t("About.WorkCard.apprenticeship"),
       date: t("About.WorkCard.Dates.ctp")
     },

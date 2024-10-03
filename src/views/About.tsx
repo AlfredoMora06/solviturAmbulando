@@ -98,11 +98,13 @@ export default function About():JSX.Element {
                   <Typography variant="h6" sx={{ color: lightGray }}>
                     {t("About.secondParagraph")}
                   </Typography>
-
                   <br />
-
                   <Typography variant="h6" sx={{ color: lightGray }}>
                     {t("About.thirdParagraph")}
+                  </Typography>
+                  <br />
+                  <Typography variant="h6" sx={{ color: lightGray }}>
+                    {t("About.fourthParagraph")}
                   </Typography>
                 </Grid>
               </Grid>

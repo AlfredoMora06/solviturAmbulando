@@ -2,7 +2,8 @@
   "About": {
     "firstParagraph": "Soy hijo de inmigrantes mexicanos. Crecí en Astoria, Nueva York hasta 2010. Después de eso, me mudé a México con mi familia, donde pasé los siguientes 6 años viviendo en Oaxaca, yendo a la escuela y experimentando la vida cotidiana allí. A la edad de 16 años en 2015, decidí dar el salto y lograr el sueño americano y mudarme a Nueva York. Terminé la escuela secundaria allí y en 2021, en medio de una pandemia, me gradué del Hunter College con una licenciatura. en Ciencias de la Computación.",
     "secondParagraph": "En 2021, comencé mi pasantía en TracFlo, una empresa de tecnología de la construcción que busca revolucionar uno de los espacios menos digitalizados del mundo. Después de 6 meses de trabajar con ellos y ser parte de su increíble viaje, decidimos hacer la transición a tiempo completo. Comencé a trabajar con TracFlo como ingeniero de software a principios de 2022.",
-    "thirdParagraph": "Mi sueño es mejorar un poco mis habilidades de ingeniería de software cada día y ayudar a mi comunidad en Estados Unidos y México, en todo lo que pueda. En mi tiempo libre, puedes encontrarme jugando fútbol, ​​probando comida nueva en Queens o viajando con mochila por Europa.",
+    "thirdParagraph": "As of March 2024, I've been working at Wildfire Systems Inc, expanding my software engineering skills onto the realm of chrome, safari, and mobile extensions. Entering a role where I build new tools and processes along the way.",
+    "fourthParagraph": "Mi sueño es mejorar un poco mis habilidades de ingeniería de software cada día y ayudar a mi comunidad en Estados Unidos y México, en todo lo que pueda. En mi tiempo libre, puedes encontrarme jugando fútbol, ​​probando comida nueva en Queens o viajando con mochila por Europa.",
     "WorkCard": {
       "apprenticeship": "Aprendizaje",
       "baComputerScience": "Licenciatura en Ciencias de la Computación",
@@ -12,11 +13,13 @@
       "educationTitle": "Educación",
       "volunteerTitle": "Voluntario",
       "productManagementCourse": "Curso de Gestión de Producto",
+      "softwareEngineer": "Ingeniero de Software",
       "softwareEngineerI": "Ingeniero de Software I",
       "softwareEngineerII": "Ingeniero de Software II",
       "softwareEngineerIntern": "Ingeniero de Software Pasante",
       "Dates": {
-        "tracflo3": "Sep 2023 - Actualidad",
+        "wildfire": "Mar 2024 - Actualidad",
+        "tracflo3": "Sep 2023 - Feb 2024",
         "tracflo2": "Ene 2022 - Aug 2023",
         "tracflo1": "Jun 2021 - Dic 2021",
         "cunyK": "Sep 2019 - Jun 2021",

@@ -2,7 +2,8 @@
   "About": {
     "firstParagraph": "I am the son of Mexican immigrants. I grew up in Astoria, NY until 2010. After that, I moved to Mexico with my family where I spent the next 6 years living in Oaxaca - going to school and experiencing everyday life there. At the age of 16 in 2015 - I decided to make the jump and achieve the American Dream and move to NYC. I finished high school there and in 2021 - midst pandemic - I graduated from Hunter College with a B.S. in Computer Science.",
     "secondParagraph": "In 2021, I began my internship with TracFlo a construction-tech company looking to revolutinize one of the least digitized spaces in the world. After 6 months of working with them and being part of their incredible journey, we decided to make the transition into full-time. I began working with TracFlo as a Software Engineer in the beginning of 2022.",
-    "thirdParagraph": "My dream is to better my software engineering skills a bit each day and help out my community in the U.S and in Mexico, in any way I can. In my spare time, you can find me playing soccer, trying new food around Queens, or backpacking across Europe.",
+    "thirdParagraph": "A partir de marzo del 2024, he estado trabajando en Wildfire Systems Inc, ampliando mis habilidades de ingeniería de software al ámbito de Chrome, Safari y las extensiones móviles. Entrando en un rol en el que desarrollo nuevas herramientas y procesos a lo largo del camino.",
+    "fourthParagraph": "My dream is to better my software engineering skills a bit each day and help out my community in the U.S and in Mexico, in any way I can. In my spare time, you can find me playing soccer, trying new food around Queens, or backpacking across Western Europe.",
     "WorkCard": {
       "apprenticeship": "Apprenticeship",
       "baComputerScience": "B.A. Computer Science",
@@ -12,11 +13,13 @@
       "educationTitle": "Education",
       "volunteerTitle": "Volunteer",
       "productManagementCourse": "Product Management Course",
+      "softwareEngineer": "Software Engineer",
       "softwareEngineerI": "Software Engineer I",
       "softwareEngineerII": "Software Engineer II",
       "softwareEngineerIntern": "Software Engineer Intern",
       "Dates": {
-        "tracflo3": "Sep 2023 - Present",
+        "wildfire": "Mar 2024 - Present",
+        "tracflo3": "Sep 2023 - Feb 2024",
         "tracflo2": "Jan 2022 - Aug 2023",
         "tracflo1": "Jun 2021 - Dec 2021",
         "cunyK": "Sep 2019 - Jun 2021",
